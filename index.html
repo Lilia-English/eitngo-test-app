@@ -46,6 +46,8 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
 
 .start-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 15px rgba(58,134,255,.4);transition:all .15s;margin-top:4px;}
 .start-btn:active{transform:scale(0.98);box-shadow:0 2px 8px rgba(58,134,255,.3);}
+.list-open-btn{width:100%;background:var(--paper);border:1.5px solid var(--border);color:var(--ink2);border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;margin-top:10px;}
+.list-open-btn:hover{border-color:var(--accent);color:var(--accent);}
 
 /* QUIZ */
 .prog-wrap{margin-bottom:20px;}
@@ -104,29 +106,29 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
 .rs-l{font-size:9px;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .rs-n{font-family:'Kaisei Decol',serif;font-size:22px;}
 
-.wrong-sec{margin-bottom:20px;}
+.wrong-sec{margin-bottom:20px;display:block;}
 .wrong-sec h3{font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:12px;}
-.wi-r{text-align:right;min-width:0;}
-.wi-jp{color:var(--ink2);font-size:12px;word-break:break-all;line-height:1.5;}
-.wi-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3);}
-.wi{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-bottom:1px solid rgba(0,0,0,.05);gap:8px;border-radius:6px;}
-.wi-mark{font-size:13px;font-weight:700;flex-shrink:0;width:16px;text-align:center;}
-.wi-wrong .wi-en{font-family:'Kaisei Decol',serif;font-size:16px;color:var(--red);flex-shrink:0;}
-.wi-correct .wi-en{font-family:'Kaisei Decol',serif;font-size:16px;color:var(--green);flex-shrink:0;}
+.wi{display:flex;align-items:center;padding:10px 8px;border-bottom:1px solid rgba(0,0,0,.05);gap:8px;border-radius:8px;}
+.wi-mark{font-size:13px;font-weight:700;flex-shrink:0;width:18px;text-align:center;}
+.wi-en{font-family:'Kaisei Decol',serif;font-size:17px;flex-shrink:0;min-width:80px;}
+.wi-r{flex:1;min-width:0;text-align:left;}
+.wi-jp{color:var(--ink2);font-size:13px;word-break:break-all;line-height:1.5;}
+.wi-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3);margin-top:2px;}
+.wi-wrong .wi-en{color:var(--red);}
+.wi-correct .wi-en{color:var(--green);}
 .wi-wrong .wi-mark{color:var(--red);}
 .wi-correct .wi-mark{color:var(--green);}
-.wi-wrong{background:rgba(192,57,43,.04);}
-.wi-correct{background:rgba(0,121,107,.04);}
-.wi-section-label{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:10px 4px 6px;letter-spacing:1px;display:block;}
+.wi-wrong{background:rgba(192,57,43,.04);border-radius:8px;}
+.wi-correct{background:rgba(0,121,107,.04);border-radius:8px;}
+.wi-section-label{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:12px 4px 6px;letter-spacing:1px;display:block;}
 .ng-label{color:var(--red);}
-.ok-label{color:var(--green);margin-top:6px;}
+.ok-label{color:var(--green);margin-top:4px;}
 
 .acts{display:flex;gap:10px;}
 .retry-btn{flex:2;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 15px rgba(58,134,255,.3);}
 .back-btn{flex:1;background:var(--paper);border:1.5px solid var(--border);color:var(--ink2);border-radius:12px;padding:15px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
-.retry-wrong-btn{width:100%;background:var(--red-bg);border:2px solid var(--red);color:var(--red);border-radius:12px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;margin-top:10px;display:none;}
+.retry-wrong-btn{width:100%;background:var(--red-bg);border:2px solid var(--red);color:var(--red);border-radius:12px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;margin-top:10px;}
 .retry-wrong-btn:hover{background:var(--red);color:#fff;}
-.retry-mode-badge{display:inline-block;background:var(--red-bg);border:1px solid var(--red);color:var(--red);font-size:11px;font-family:'JetBrains Mono',monospace;padding:3px 12px;border-radius:20px;margin-bottom:12px;}
 
 @media(max-width:400px){
   .s-title{font-size:30px;}
@@ -137,6 +139,46 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
   .r-stats{grid-template-columns:repeat(2,1fr);}
   .mode-grid{grid-template-columns:1fr;}
 }
+
+/* 単語一覧画面 */
+.list-screen-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.list-back-btn{background:var(--paper);border:1.5px solid var(--border);color:var(--ink2);border-radius:10px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;flex-shrink:0;}
+.list-back-btn:hover{border-color:var(--accent);color:var(--accent);}
+.list-screen-title{font-family:'Kaisei Decol',serif;font-size:20px;color:var(--ink);}
+.wl-filter-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.wl-chip{border:1.5px solid var(--border);background:var(--paper);border-radius:20px;padding:5px 14px;cursor:pointer;font-size:12px;color:var(--ink2);transition:all .15s;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.wl-chip:hover{border-color:var(--accent);}
+.wl-chip.sel{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;}
+.wl-section{margin-bottom:28px;}
+.wl-section-header{display:flex;align-items:center;gap:8px;padding:10px 0 10px;border-bottom:2px solid var(--border);margin-bottom:2px;cursor:pointer;user-select:none;}
+.wl-section-title{font-size:13px;font-weight:700;color:var(--ink);font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
+.wl-section-count{font-size:11px;font-family:'JetBrains Mono',monospace;background:var(--bg);padding:2px 8px;border-radius:10px;}
+.wl-section-toggle{margin-left:auto;font-size:11px;color:var(--ink3);transition:transform .2s;flex-shrink:0;}
+.wl-section-toggle.open{transform:rotate(180deg);}
+.wl-rows{display:flex;flex-direction:column;}
+.wl-row{display:flex;align-items:baseline;gap:12px;padding:13px 4px;border-bottom:1px solid var(--border);}
+.wl-row:last-child{border-bottom:none;}
+.wl-en{font-family:'Kaisei Decol',serif;font-size:20px;color:var(--ink);flex-shrink:0;min-width:110px;}
+.wl-jp{font-size:13px;color:var(--ink2);line-height:1.6;word-break:break-all;flex:1;}
+.wl-empty{text-align:center;padding:32px;color:var(--ink3);font-size:13px;}
+.listening-stage{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px 20px;background:var(--paper);border-radius:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(58,134,255,.08);min-height:160px;}
+.listen-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:50%;width:100px;height:100px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 6px 20px rgba(58,134,255,.35);transition:all .15s;}
+.listen-btn:active{transform:scale(0.93);}
+.listen-btn.playing{animation:listenPulse .8s ease-in-out infinite alternate;box-shadow:0 6px 28px rgba(58,134,255,.55);}
+@keyframes listenPulse{from{box-shadow:0 6px 20px rgba(58,134,255,.35);}to{box-shadow:0 6px 36px rgba(58,134,255,.7);transform:scale(1.04);}}
+.listen-icon{font-size:36px;line-height:1;}
+.listen-label{font-size:11px;color:#fff;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
+.listen-replay-btn{background:none;border:1.5px solid var(--border);color:var(--ink2);border-radius:20px;padding:6px 18px;font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;}
+.listen-replay-btn:hover{border-color:var(--accent);color:var(--accent);}
+.wl-speak-btn{
+  background:none;border:1.5px solid var(--border);
+  color:var(--ink3);border-radius:8px;
+  padding:5px 10px;cursor:pointer;font-size:14px;
+  transition:all .2s;flex-shrink:0;line-height:1;
+}
+.wl-speak-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(58,134,255,.06);}
+.wl-speak-btn.speaking{border-color:var(--accent);color:var(--accent);background:rgba(58,134,255,.1);animation:pulse .6s ease-in-out infinite alternate;}
+@keyframes pulse{from{opacity:1;}to{opacity:.5;}}
 </style>
 </head>
 <body>
@@ -165,6 +207,7 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
       <div class="mc" data-mode="jp2en" onclick="selMode(this)"><span class="mc-icon">🇯🇵</span><div class="mc-title">日本語 → 英語</div><div class="mc-sub">日本語から英単語を選ぶ</div></div>
       <div class="mc" data-mode="4choice" onclick="selMode(this)"><span class="mc-icon">✅</span><div class="mc-title">4択（ランダム方向）</div><div class="mc-sub">問題ごとに方向が変わる</div></div>
       <div class="mc" data-mode="typing" onclick="selMode(this)"><span class="mc-icon">⌨️</span><div class="mc-title">タイピング入力</div><div class="mc-sub">英単語をスペル入力</div></div>
+      <div class="mc" data-mode="listening" onclick="selMode(this)"><span class="mc-icon">🔊</span><div class="mc-title">リスニング</div><div class="mc-sub">音声だけ聞いて意味を選ぶ</div></div>
     </div>
   </div>
   <div class="cfg">
@@ -195,19 +238,28 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
   </div>
   <button class="start-btn" onclick="startQuiz()">テスト開始 →</button>
 
-  <!-- 苦手単語リスト -->
-  <div class="weak-card" id="weak-card">
-    <div class="weak-header">
-      <div class="weak-title">📌 苦手単語リスト <span class="weak-count" id="weak-count">0語</span></div>
-      <button class="weak-clear-btn" onclick="clearAllWeak()">全削除</button>
-    </div>
-    <div id="weak-empty" class="weak-empty">まだ苦手単語がありません<br>テストで間違えると自動で追加されます</div>
-    <div class="weak-list" id="weak-list" style="display:none"></div>
-    <div style="margin-top:12px;display:none" id="weak-start-wrap">
-      <button class="weak-start-btn" onclick="startWeakQuiz()">📌 苦手単語だけテストする</button>
-    </div>
-    <div class="save-notice" id="save-notice">✓ 苦手単語を保存しました</div>
+  <button class="list-open-btn" onclick="showScreen('wordlist')">📖 単語一覧を見る</button>
+
+</div>
+
+<!-- WORDLIST -->
+<div class="screen" id="scr-wordlist">
+  <div class="list-screen-header">
+    <button class="list-back-btn" onclick="showScreen('start')">← 戻る</button>
+    <div class="list-screen-title">📖 単語一覧</div>
   </div>
+  <div class="wl-filter-bar">
+    <div class="wl-chip sel" data-wlf="all" onclick="selWlFilter(this)">全部</div>
+    <div class="wl-chip" data-wlf="初級" onclick="selWlFilter(this)">初級</div>
+    <div class="wl-chip" data-wlf="中級" onclick="selWlFilter(this)">中級</div>
+    <div class="wl-chip" data-wlf="上級" onclick="selWlFilter(this)">上級</div>
+    <div class="wl-chip" data-wlf="動詞" onclick="selWlFilter(this)">動詞</div>
+    <div class="wl-chip" data-wlf="名詞" onclick="selWlFilter(this)">名詞</div>
+    <div class="wl-chip" data-wlf="形容詞" onclick="selWlFilter(this)">形容詞</div>
+    <div class="wl-chip" data-wlf="副詞" onclick="selWlFilter(this)">副詞</div>
+    <div class="wl-chip" data-wlf="その他" onclick="selWlFilter(this)">前置詞等</div>
+  </div>
+  <div id="wordlist-body"></div>
 </div>
 
 <!-- QUIZ -->
@@ -225,9 +277,19 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
     <div class="q-pos-tag" id="q-pos-tag">動詞</div>
     <div id="q-lv-tag" class="lv-初級">初級</div>
   </div>
-  <div class="word-stage">
+  <div class="word-stage" id="word-stage">
     <div id="word-disp" class="word-en">hello</div>
     <div id="ph-disp" class="word-ph"></div>
+  </div>
+  <!-- リスニング用ステージ -->
+  <div class="listening-stage" id="listening-stage" style="display:none">
+    <button class="listen-btn" id="listen-btn" onclick="playCurrentWord()">
+      <span class="listen-icon">🔊</span>
+      <span class="listen-label">タップして再生</span>
+    </button>
+    <div class="listen-replay" id="listen-replay" style="display:none">
+      <button class="listen-replay-btn" onclick="playCurrentWord()">🔁 もう一度聞く</button>
+    </div>
   </div>
   <div id="choices-wrap" class="choices"></div>
   <div id="typing-wrap" style="display:none">
@@ -262,9 +324,8 @@ header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12p
     <button class="retry-btn" onclick="startQuiz()">もう一度</button>
     <button class="back-btn" onclick="goStart()">設定に戻る</button>
   </div>
-  <button class="retry-wrong-btn" id="retry-wrong-btn" onclick="retryWrong()">🔁 間違えた単語だけ復習する</button>
+  <button class="retry-wrong-btn" id="retry-wrong-btn" onclick="retryWrong()" style="display:none">🔁 間違えた単語だけ復習する</button>
 </div>
-
 </div>
 <script>
 const W=[
@@ -1288,10 +1349,9 @@ const W=[
 {en:"round",jp:"丸い",pos:"形容詞",lv:"初級"}
 ];
 
-let mode='en2jp',lv='all',pos='all',qLimit=9999,isWeakMode=false;
+let mode='en2jp',lv='all',pos='all',qLimit=9999;
 let qs=[],idx=0,correct=0,wrong=0,streak=0,bestStreak=0,wrongWords=[],correctWords=[],answered=false;
 document.getElementById('total-cnt').textContent=W.length+'語';
-renderWeakList();
 
 function selMode(el){document.querySelectorAll('.mc').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');mode=el.dataset.mode;}
 function selLv(el){document.querySelectorAll('[data-lv]').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');lv=el.dataset.lv;}
@@ -1309,30 +1369,48 @@ function getPool(){
 function startQuiz(){
   let pool=getPool();
   qs=shuffle(pool).slice(0,qLimit>=pool.length?pool.length:qLimit);
-  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];isWeakMode=false;
+  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];
   document.getElementById('hbadge').style.display='none';
   showScreen('quiz');renderQ();
 }
 
 function renderQ(){
   answered=false;
-  const oldBadge=document.getElementById('retry-badge');
-  if(oldBadge) oldBadge.remove();
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
   const w=qs[idx];const tot=qs.length,cur=idx+1;
   document.getElementById('q-cur').textContent=cur;
   document.getElementById('q-tot').textContent=tot;
   document.getElementById('prog-fill').style.width=((cur-1)/tot*100)+'%';
   const isTyping=(mode==='typing');
+  const isListening=(mode==='listening');
   let dir;
   if(mode==='en2jp') dir='en2jp';
   else if(mode==='jp2en') dir='jp2en';
   else if(isTyping) dir='jp2en';
+  else if(isListening) dir='en2jp';
   else dir=Math.random()>.5?'en2jp':'jp2en';
+
   const wd=document.getElementById('word-disp');
   const pd=document.getElementById('ph-disp');
-  if(isTyping){wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN（入力）';}
-  else if(dir==='en2jp'){wd.className='word-en';wd.textContent=w.en;pd.textContent='';document.getElementById('q-type-tag').textContent='EN → JP';}
-  else{wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN';}
+  const wordStage=document.getElementById('word-stage');
+  const listenStage=document.getElementById('listening-stage');
+  const listenBtn=document.getElementById('listen-btn');
+  const listenReplay=document.getElementById('listen-replay');
+
+  if(isListening){
+    // リスニングモード：単語を隠して音声ステージを表示
+    wordStage.style.display='none';
+    listenStage.style.display='flex';
+    listenBtn.classList.remove('playing');
+    listenReplay.style.display='none';
+    document.getElementById('q-type-tag').textContent='🔊 リスニング';
+  } else {
+    wordStage.style.display='block';
+    listenStage.style.display='none';
+    if(isTyping){wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN（入力）';}
+    else if(dir==='en2jp'){wd.className='word-en';wd.textContent=w.en;pd.textContent='';document.getElementById('q-type-tag').textContent='EN → JP';}
+    else{wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN';}
+  }
   document.getElementById('word-num-tag').textContent='#'+(idx+1);
   document.getElementById('q-pos-tag').textContent=w.pos;
   document.getElementById('q-lv-tag').textContent=w.lv;
@@ -1348,6 +1426,10 @@ function renderQ(){
     setTimeout(()=>inp.focus(),80);
   } else {
     tw.style.display='none';cw.style.display='grid';buildChoices(w,dir);
+  }
+  // リスニングは問題表示後すぐ自動再生
+  if(isListening){
+    setTimeout(()=>playCurrentWord(),300);
   }
 }
 
@@ -1389,7 +1471,8 @@ function handleResult(ok,w,dir,ans){
   else{wrong++;streak=0;wrongWords.push(w);}
   const fb=document.getElementById('fb-el');
   const show=ans||(dir==='en2jp'?w.jp:w.en);
-  fb.textContent=ok?'✓ 正解！ 「'+show+'」':'✗ 不正解。正解は「'+show+'」';
+  const listenExtra=(mode==='listening')?' ('+w.en+')':'';
+  fb.textContent=ok?'✓ 正解！ 「'+show+'」'+listenExtra:'✗ 不正解。正解は「'+show+'」'+listenExtra;
   fb.className='fb show '+(ok?'ok':'ng');
   document.getElementById('hbadge').style.display='block';
   document.getElementById('hstr').textContent=streak;
@@ -1430,161 +1513,170 @@ function showResult(){
   const rwb=document.getElementById('retry-wrong-btn');
   rwb.style.display=wrongWords.length?'block':'none';
   rwb.textContent='🔁 間違えた '+wrongWords.length+'語 を復習する';
-  // 間違えた単語をlocalStorageに保存
-  if(wrongWords.length){
-    addToWeak(wrongWords);
-    const sn=document.getElementById('save-notice');
-    // 苦手リストに保存通知（結果画面には表示しない、次回起動時に反映）
-  }
-  // 苦手モードで正解した単語は苦手リストから回数をリセット
-  if(isWeakMode && correctWords.length){
-    let weak=loadWeakWords();
-    correctWords.forEach(cw=>{
-      const idx2=weak.findIndex(x=>x.en===cw.en);
-      if(idx2!==-1){
-        if((weak[idx2].count||1)<=1){
-          weak.splice(idx2,1); // 1回ミスで正解したら削除
-        } else {
-          weak[idx2].count--;  // 複数回ミスは回数を減らす
-        }
-      }
-    });
-    saveWeakWords(weak);
-  }
-  isWeakMode=false;
+
   showScreen('result');
 }
 
 function goStart(){
   document.getElementById('hbadge').style.display='none';
-  renderWeakList();
-  showScreen('start');
+    showScreen('start');
 }
 
-// ── 苦手単語 localStorage管理 ──
-const STORAGE_KEY='daily_eng_weak_v1';
-
-function loadWeakWords(){
-  try{
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
-  }catch(e){return[];}
-}
-
-function saveWeakWords(words){
-  try{
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(words));
-  }catch(e){}
-}
-
-function addToWeak(words){
-  let weak=loadWeakWords();
-  const today=new Date().toLocaleDateString('ja-JP',{month:'numeric',day:'numeric'});
-  words.forEach(w=>{
-    const exists=weak.find(x=>x.en===w.en);
-    if(exists){
-      exists.count=(exists.count||1)+1;
-      exists.date=today;
-    } else {
-      weak.push({en:w.en,jp:w.jp,pos:w.pos,lv:w.lv,count:1,date:today});
-    }
-  });
-  saveWeakWords(weak);
-}
-
-function removeFromWeak(en){
-  let weak=loadWeakWords().filter(w=>w.en!==en);
-  saveWeakWords(weak);
-  renderWeakList();
-}
-
-function clearAllWeak(){
-  if(!confirm('苦手単語リストを全削除しますか？')) return;
-  saveWeakWords([]);
-  renderWeakList();
-}
-
-function renderWeakList(){
-  const weak=loadWeakWords();
-  const countEl=document.getElementById('weak-count');
-  const emptyEl=document.getElementById('weak-empty');
-  const listEl=document.getElementById('weak-list');
-  const startWrap=document.getElementById('weak-start-wrap');
-  if(!countEl) return;
-  countEl.textContent=weak.length+'語';
-  if(weak.length===0){
-    emptyEl.style.display='block';
-    listEl.style.display='none';
-    startWrap.style.display='none';
-  } else {
-    emptyEl.style.display='none';
-    listEl.style.display='flex';
-    startWrap.style.display='block';
-    // 間違い回数が多い順に並べる
-    const sorted=[...weak].sort((a,b)=>(b.count||1)-(a.count||1));
-    listEl.innerHTML=sorted.map(w=>`
-      <div class="weak-item">
-        <div>
-          <div class="weak-item-en">${w.en}</div>
-          <div class="weak-item-jp">${w.jp}</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
-          <div style="text-align:right">
-            <div class="weak-item-date">${w.date||''}</div>
-            <div style="font-size:10px;color:var(--red);font-family:'JetBrains Mono',monospace">${w.count||1}回ミス</div>
-          </div>
-          <button class="weak-item-del" onclick="removeFromWeak('${w.en}')">×</button>
-        </div>
-      </div>`).join('');
-  }
-}
-
-function startWeakQuiz(){
-  const weak=loadWeakWords();
-  if(!weak.length) return;
-  // Wの中から苦手単語に一致するものを取得
-  const weakWords=weak.map(wk=>W.find(w=>w.en===wk.en)).filter(Boolean);
-  if(!weakWords.length) return;
-  qs=shuffle(weakWords);
-  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];isWeakMode=false;
-  document.getElementById('hbadge').style.display='none';
-  isWeakMode=true;
-  showScreen('quiz');
-  // 復習モードバッジ
-  setTimeout(()=>{
-    const prog=document.querySelector('.prog-top');
-    if(prog && !document.getElementById('retry-badge')){
-      const badge=document.createElement('div');
-      badge.id='retry-badge';
-      badge.className='retry-mode-badge';
-      badge.textContent='📌 苦手単語モード（'+weakWords.length+'語）';
-      prog.parentNode.insertBefore(badge,prog);
-    }
-  },50);
-  renderQ();
-}
 
 function retryWrong(){
   if(!wrongWords.length) return;
   qs=shuffle([...wrongWords]);
-  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;
-  const prev=wrongWords.length;
-  wrongWords=[];correctWords=[];
+  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];
   document.getElementById('hbadge').style.display='none';
-  // 復習モードバッジをヘッダーに表示
   document.getElementById('retry-wrong-btn').style.display='none';
   showScreen('quiz');
-  // 復習中バッジ表示
-  const counter=document.getElementById('q-counter');
-  if(counter){
-    const badge=document.createElement('span');
-    badge.className='retry-mode-badge';
-    badge.id='retry-badge';
-    badge.textContent='🔁 復習モード（'+prev+'語）';
-    counter.parentNode.insertBefore(badge,counter.parentNode.firstChild);
-  }
   renderQ();
 }
-function showScreen(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('scr-'+n).classList.add('active');}
+// ── リスニングモード再生 ──
+function playCurrentWord(){
+  if(!window.speechSynthesis) return;
+  const w=qs[idx];
+  if(!w) return;
+  window.speechSynthesis.cancel();
+  const btn=document.getElementById('listen-btn');
+  const replay=document.getElementById('listen-replay');
+  if(btn) btn.classList.add('playing');
+
+  const utter=new SpeechSynthesisUtterance(w.en);
+  utter.lang='en-US';
+  utter.rate=0.82;
+  utter.pitch=1;
+  utter.onend=()=>{
+    if(btn) btn.classList.remove('playing');
+    if(replay) replay.style.display='block';
+  };
+  utter.onerror=()=>{
+    if(btn) btn.classList.remove('playing');
+    if(replay) replay.style.display='block';
+  };
+  window.speechSynthesis.speak(utter);
+}
+
+// ── 音声再生 (Web Speech API) ──
+let currentUtterance=null;
+
+function speakWord(word){
+  if(!window.speechSynthesis){
+    alert('お使いのブラウザは音声合成に対応していません');
+    return;
+  }
+  // 再生中なら止める
+  if(currentUtterance){
+    window.speechSynthesis.cancel();
+    // 同じ単語なら止めるだけ
+    if(currentUtterance.text===word){
+      currentUtterance=null;
+      document.querySelectorAll('.wl-speak-btn.speaking').forEach(b=>b.classList.remove('speaking'));
+      return;
+    }
+  }
+  const utter=new SpeechSynthesisUtterance(word);
+  utter.lang='en-US';
+  utter.rate=0.85;
+  utter.pitch=1;
+
+  // ボタンのアニメーション
+  document.querySelectorAll('.wl-speak-btn.speaking').forEach(b=>b.classList.remove('speaking'));
+  // クリックされたボタンを探してアニメーション
+  const btns=document.querySelectorAll('.wl-speak-btn');
+  btns.forEach(btn=>{
+    if(btn.getAttribute('onclick')===`speakWord('${word}')`){
+      btn.classList.add('speaking');
+    }
+  });
+
+  utter.onend=()=>{
+    currentUtterance=null;
+    document.querySelectorAll('.wl-speak-btn.speaking').forEach(b=>b.classList.remove('speaking'));
+  };
+  utter.onerror=()=>{
+    currentUtterance=null;
+    document.querySelectorAll('.wl-speak-btn.speaking').forEach(b=>b.classList.remove('speaking'));
+  };
+  currentUtterance=utter;
+  window.speechSynthesis.speak(utter);
+}
+
+function showScreen(n){
+  // 音声停止
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
+  currentUtterance=null;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('scr-'+n).classList.add('active');
+  if(n==='wordlist') renderWordList();
+}
+
+// ── 単語一覧 ──
+let wlFilter='all';
+const WL_SECTIONS=[
+  {key:'動詞_初級',  label:'動詞',             lv:'初級',  pos:'動詞'},
+  {key:'動詞_中級',  label:'動詞',             lv:'中級',  pos:'動詞'},
+  {key:'動詞_上級',  label:'動詞',             lv:'上級',  pos:'動詞'},
+  {key:'名詞_初級',  label:'名詞',             lv:'初級',  pos:'名詞'},
+  {key:'名詞_中級',  label:'名詞',             lv:'中級',  pos:'名詞'},
+  {key:'名詞_上級',  label:'名詞',             lv:'上級',  pos:'名詞'},
+  {key:'形容詞_初級',label:'形容詞',           lv:'初級',  pos:'形容詞'},
+  {key:'形容詞_中級',label:'形容詞',           lv:'中級',  pos:'形容詞'},
+  {key:'形容詞_上級',label:'形容詞',           lv:'上級',  pos:'形容詞'},
+  {key:'副詞_初級',  label:'副詞',             lv:'初級',  pos:'副詞'},
+  {key:'副詞_中級',  label:'副詞',             lv:'中級',  pos:'副詞'},
+  {key:'副詞_上級',  label:'副詞',             lv:'上級',  pos:'副詞'},
+  {key:'その他_初級',label:'前置詞・接続詞',   lv:'初級',  pos:'その他'},
+  {key:'その他_中級',label:'前置詞・接続詞',   lv:'中級',  pos:'その他'},
+  {key:'その他_上級',label:'前置詞・接続詞',   lv:'上級',  pos:'その他'},
+];
+const wlOpen={};
+
+function selWlFilter(el){
+  document.querySelectorAll('.wl-chip').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  wlFilter=el.dataset.wlf;
+  renderWordList();
+}
+
+function toggleSection(key){
+  wlOpen[key]=wlOpen[key]===false?true:false;
+  renderWordList();
+}
+
+function renderWordList(){
+  const body=document.getElementById('wordlist-body');
+  if(!body) return;
+  const lvColors={'初級':'#f57f17','中級':'#2e7d32','上級':'#4527a0'};
+  const sections=WL_SECTIONS.filter(s=>{
+    if(wlFilter==='all') return true;
+    if(['初級','中級','上級'].includes(wlFilter)) return s.lv===wlFilter;
+    return s.pos===wlFilter;
+  });
+  let html='';
+  sections.forEach(s=>{
+    const words=W.filter(w=>w.pos===s.pos&&w.lv===s.lv);
+    if(!words.length) return;
+    const isOpen=wlOpen[s.key]!==false;
+    const color=lvColors[s.lv]||'#555';
+    html+=`<div class="wl-section">
+      <div class="wl-section-header" onclick="toggleSection('${s.key}')">
+        <span class="wl-section-title">${s.label}</span>
+        <span class="wl-section-count" style="color:${color}">${s.lv} · ${words.length}語</span>
+        <span class="wl-section-toggle ${isOpen?'open':''}">▼</span>
+      </div>
+      ${isOpen?`<div class="wl-rows">${words.map(w=>`
+        <div class="wl-row">
+          <div class="wl-en">${w.en}</div>
+          <div class="wl-jp">${w.jp}</div>
+          <button class="wl-speak-btn" onclick="speakWord('${w.en.replace(/'/g,"\'")}')" title="発音を聞く">🔊</button>
+        </div>`).join('')}</div>`:''}
+    </div>`;
+  });
+  if(!html) html='<div class="wl-empty">該当する単語がありません</div>';
+  body.innerHTML=html;
+}
+
 </script>
 </body>
 </html>
