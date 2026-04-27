@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日常英会話 必須1000語テスト</title>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f4ff;--paper:#fff;--ink:#1a1a2e;--ink2:#555;--ink3:#aaa;--red:#c0392b;--red-bg:#fdf0ef;--green:#00796b;--green-bg:#e8f5e9;--gold:#b8860b;--accent:#3a86ff;--accent2:#8338ec;--border:#d0d8f0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;min-height:100vh;}
+header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99;gap:8px;}
+.logo{font-family:'Kaisei Decol',serif;font-size:15px;flex:1;min-width:0;line-height:1.3;}
+.logo em{color:#ffd60a;font-style:normal;}
+.hbadge{font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:4px 10px;border-radius:20px;display:none;white-space:nowrap;flex-shrink:0;}
+.wrap{max-width:680px;margin:0 auto;padding:28px 14px 80px;}
+.screen{display:none;animation:up .3s ease;}.screen.active{display:block;}
+@keyframes up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.s-hero{text-align:center;margin-bottom:28px;}
+.s-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;margin-bottom:14px;}
+.s-title{font-family:'Kaisei Decol',serif;font-size:38px;line-height:1.2;margin-bottom:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.s-sub{font-size:13px;color:var(--ink2);}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px;}
+.sbox{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:14px 8px;text-align:center;box-shadow:0 2px 8px rgba(58,134,255,.08);}
+.sbox-n{font-family:'Kaisei Decol',serif;font-size:clamp(13px,4vw,26px);color:var(--accent);white-space:nowrap;}
+.sbox-l{font-size:10px;color:var(--ink3);margin-top:3px;}
+
+.cfg{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(58,134,255,.06);}
+.cfg h3{font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.mc{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;cursor:pointer;transition:all .15s;text-align:left;}
+.mc.sel{border-color:var(--accent);background:#eff6ff;box-shadow:0 0 0 3px rgba(58,134,255,.15);}
+.mc-icon{font-size:16px;display:block;margin-bottom:4px;}
+.mc-title{font-size:12px;font-weight:700;color:var(--ink);}
+.mc-sub{font-size:10px;color:var(--ink3);}
+
+.filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px;}
+.chip{border:1.5px solid var(--border);background:var(--bg);border-radius:20px;padding:5px 14px;cursor:pointer;font-size:12px;color:var(--ink2);transition:all .15s;font-family:'JetBrains Mono',monospace;}
+.chip.sel{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;}
+
+.qn-row{display:flex;gap:6px;flex-wrap:wrap;}
+.qchip{border:1.5px solid var(--border);background:var(--bg);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:12px;color:var(--ink2);transition:all .15s;font-family:'JetBrains Mono',monospace;}
+.qchip.sel{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;}
+
+.start-btn{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 15px rgba(58,134,255,.4);transition:all .15s;margin-top:4px;}
+.start-btn:active{transform:scale(0.98);box-shadow:0 2px 8px rgba(58,134,255,.3);}
+
+/* QUIZ */
+.prog-wrap{margin-bottom:20px;}
+.prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.q-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink2);}
+.q-counter strong{color:var(--ink);}
+.streak{font-size:11px;font-family:'JetBrains Mono',monospace;background:#fffde7;border:1px solid #f0c040;color:var(--gold);padding:3px 10px;border-radius:20px;display:none;white-space:nowrap;}
+.streak.show{display:inline-block;}
+.prog-track{height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1);}
+
+.q-meta-row{display:flex;align-items:center;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+.q-num-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3);}
+.q-type-tag{font-size:10px;font-family:'JetBrains Mono',monospace;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:3px 8px;border-radius:10px;white-space:nowrap;}
+.q-pos-tag{font-size:10px;font-family:'JetBrains Mono',monospace;background:var(--paper);border:1px solid var(--border);color:var(--ink2);padding:3px 8px;border-radius:10px;white-space:nowrap;}
+.lv-初級{background:#fff8e1;color:#f57f17;border:1px solid #ffe082;font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:10px;white-space:nowrap;}
+.lv-中級{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:10px;white-space:nowrap;}
+.lv-上級{background:#ede7f6;color:#4527a0;border:1px solid #b39ddb;font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:10px;white-space:nowrap;}
+
+.word-stage{background:var(--paper);border:none;border-radius:20px;padding:36px 20px;text-align:center;margin-bottom:20px;box-shadow:0 8px 30px rgba(58,134,255,.12);}
+.word-en{font-family:'Kaisei Decol',serif;font-size:52px;color:var(--ink);line-height:1.1;margin-bottom:8px;word-break:break-word;}
+.word-jp{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.5;word-break:break-all;}
+.word-ph{font-size:13px;color:var(--ink3);font-style:italic;}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.choice{background:var(--paper);border:1.5px solid var(--border);border-radius:12px;padding:14px 10px;cursor:pointer;font-size:13px;color:var(--ink);font-family:'Noto Sans JP',sans-serif;transition:all .15s;text-align:center;line-height:1.6;word-break:break-all;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+.choice:active{transform:scale(0.97);}
+.choice.correct{background:var(--green-bg);border-color:var(--green);color:var(--green);font-weight:700;}
+.choice.wrong{background:var(--red-bg);border-color:var(--red);color:var(--red);}
+.choice:disabled{cursor:default;}
+
+.type-wrap{display:flex;gap:8px;margin-bottom:10px;}
+.type-input{flex:1;min-width:0;background:var(--paper);border:2px solid var(--border);border-radius:12px;padding:13px 12px;font-size:16px;font-family:'JetBrains Mono',monospace;color:var(--ink);outline:none;transition:border-color .15s;}
+.type-input:focus{border-color:var(--accent);}
+.type-input.correct{border-color:var(--green);background:var(--green-bg);color:var(--green);}
+.type-input.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red);}
+.sub-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;padding:13px 16px;font-size:16px;cursor:pointer;flex-shrink:0;}
+
+.fb{border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:13px;font-weight:700;text-align:center;display:none;line-height:1.6;word-break:break-all;}
+.fb.show{display:block;}
+.fb.ok{background:var(--green-bg);color:var(--green);}
+.fb.ng{background:var(--red-bg);color:var(--red);}
+
+.next-btn{width:100%;background:transparent;border:2px solid var(--border);color:var(--ink2);border-radius:12px;padding:13px;font-size:14px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .2s;display:none;font-weight:500;}
+.next-btn.show{display:block;}
+.next-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+/* RESULT */
+.result-card{background:var(--paper);border-radius:20px;padding:32px 20px;text-align:center;box-shadow:0 8px 30px rgba(58,134,255,.12);margin-bottom:20px;}
+.r-pct{font-family:'Kaisei Decol',serif;font-size:72px;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
+.r-sub{font-size:12px;color:var(--ink3);margin-bottom:14px;}
+.r-grade{font-size:22px;font-weight:700;margin-bottom:6px;}
+.r-msg{font-size:13px;color:var(--ink2);margin-bottom:20px;line-height:1.6;}
+.r-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.rs{background:var(--bg);border-radius:10px;padding:10px 6px;text-align:center;}
+.rs-l{font-size:9px;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.rs-n{font-family:'Kaisei Decol',serif;font-size:22px;}
+
+.wrong-sec{margin-bottom:20px;}
+.wrong-sec h3{font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+.wi-r{text-align:right;min-width:0;}
+.wi-jp{color:var(--ink2);font-size:12px;word-break:break-all;line-height:1.5;}
+.wi-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink3);}
+.wi{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-bottom:1px solid rgba(0,0,0,.05);gap:8px;border-radius:6px;}
+.wi-mark{font-size:13px;font-weight:700;flex-shrink:0;width:16px;text-align:center;}
+.wi-wrong .wi-en{font-family:'Kaisei Decol',serif;font-size:16px;color:var(--red);flex-shrink:0;}
+.wi-correct .wi-en{font-family:'Kaisei Decol',serif;font-size:16px;color:var(--green);flex-shrink:0;}
+.wi-wrong .wi-mark{color:var(--red);}
+.wi-correct .wi-mark{color:var(--green);}
+.wi-wrong{background:rgba(192,57,43,.04);}
+.wi-correct{background:rgba(0,121,107,.04);}
+.wi-section-label{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:10px 4px 6px;letter-spacing:1px;display:block;}
+.ng-label{color:var(--red);}
+.ok-label{color:var(--green);margin-top:6px;}
+
+.acts{display:flex;gap:10px;}
+.retry-btn{flex:2;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;box-shadow:0 4px 15px rgba(58,134,255,.3);}
+.back-btn{flex:1;background:var(--paper);border:1.5px solid var(--border);color:var(--ink2);border-radius:12px;padding:15px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;}
+.retry-wrong-btn{width:100%;background:var(--red-bg);border:2px solid var(--red);color:var(--red);border-radius:12px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .15s;margin-top:10px;display:none;}
+.retry-wrong-btn:hover{background:var(--red);color:#fff;}
+.retry-mode-badge{display:inline-block;background:var(--red-bg);border:1px solid var(--red);color:var(--red);font-size:11px;font-family:'JetBrains Mono',monospace;padding:3px 12px;border-radius:20px;margin-bottom:12px;}
+
+@media(max-width:400px){
+  .s-title{font-size:30px;}
+  .word-en{font-size:38px;}
+  .word-jp{font-size:18px;}
+  .choices{grid-template-columns:1fr;}
+  .r-pct{font-size:56px;}
+  .r-stats{grid-template-columns:repeat(2,1fr);}
+  .mode-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">日常英会話 <em>必須1000語</em> テスト</div>
+  <div class="hbadge" id="hbadge">🔥 <span id="hstr">0</span></div>
+</header>
+<div class="wrap">
+
+<!-- START -->
+<div class="screen active" id="scr-start">
+  <div class="s-hero">
+    <div class="s-badge">DAILY ENGLISH · 1000 ESSENTIAL WORDS</div>
+    <div class="s-title">単語テスト</div>
+    <div class="s-sub">日常英会話で使える必須1000語 完全収録</div>
+  </div>
+  <div class="stats-row">
+    <div class="sbox"><div class="sbox-n" id="total-cnt">...</div><div class="sbox-l">収録単語</div></div>
+    <div class="sbox"><div class="sbox-n">4</div><div class="sbox-l">出題モード</div></div>
+    <div class="sbox"><div class="sbox-n">初中上</div><div class="sbox-l">レベル</div></div>
+  </div>
+  <div class="cfg">
+    <h3>出題モード</h3>
+    <div class="mode-grid">
+      <div class="mc sel" data-mode="en2jp" onclick="selMode(this)"><span class="mc-icon">🇺🇸</span><div class="mc-title">英語 → 日本語</div><div class="mc-sub">英単語から意味を選ぶ</div></div>
+      <div class="mc" data-mode="jp2en" onclick="selMode(this)"><span class="mc-icon">🇯🇵</span><div class="mc-title">日本語 → 英語</div><div class="mc-sub">日本語から英単語を選ぶ</div></div>
+      <div class="mc" data-mode="4choice" onclick="selMode(this)"><span class="mc-icon">✅</span><div class="mc-title">4択（ランダム方向）</div><div class="mc-sub">問題ごとに方向が変わる</div></div>
+      <div class="mc" data-mode="typing" onclick="selMode(this)"><span class="mc-icon">⌨️</span><div class="mc-title">タイピング入力</div><div class="mc-sub">英単語をスペル入力</div></div>
+    </div>
+  </div>
+  <div class="cfg">
+    <h3>レベル</h3>
+    <div class="filter-row">
+      <div class="chip sel" data-lv="all" onclick="selLv(this)">全部</div>
+      <div class="chip" data-lv="初級" onclick="selLv(this)">初級</div>
+      <div class="chip" data-lv="中級" onclick="selLv(this)">中級</div>
+      <div class="chip" data-lv="上級" onclick="selLv(this)">上級</div>
+    </div>
+    <h3 style="margin-top:14px;">品詞</h3>
+    <div class="filter-row">
+      <div class="chip sel" data-pos="all" onclick="selPos(this)">全部</div>
+      <div class="chip" data-pos="動詞" onclick="selPos(this)">動詞</div>
+      <div class="chip" data-pos="名詞" onclick="selPos(this)">名詞</div>
+      <div class="chip" data-pos="形容詞" onclick="selPos(this)">形容詞</div>
+      <div class="chip" data-pos="副詞" onclick="selPos(this)">副詞</div>
+      <div class="chip" data-pos="その他" onclick="selPos(this)">前置詞・接続詞</div>
+    </div>
+    <h3 style="margin-top:14px;">問題数</h3>
+    <div class="qn-row">
+      <div class="qchip" data-n="10" onclick="selN(this)">10問</div>
+      <div class="qchip" data-n="20" onclick="selN(this)">20問</div>
+      <div class="qchip" data-n="30" onclick="selN(this)">30問</div>
+      <div class="qchip" data-n="50" onclick="selN(this)">50問</div>
+      <div class="qchip sel" data-n="9999" onclick="selN(this)">全問</div>
+    </div>
+  </div>
+  <button class="start-btn" onclick="startQuiz()">テスト開始 →</button>
+
+  <!-- 苦手単語リスト -->
+  <div class="weak-card" id="weak-card">
+    <div class="weak-header">
+      <div class="weak-title">📌 苦手単語リスト <span class="weak-count" id="weak-count">0語</span></div>
+      <button class="weak-clear-btn" onclick="clearAllWeak()">全削除</button>
+    </div>
+    <div id="weak-empty" class="weak-empty">まだ苦手単語がありません<br>テストで間違えると自動で追加されます</div>
+    <div class="weak-list" id="weak-list" style="display:none"></div>
+    <div style="margin-top:12px;display:none" id="weak-start-wrap">
+      <button class="weak-start-btn" onclick="startWeakQuiz()">📌 苦手単語だけテストする</button>
+    </div>
+    <div class="save-notice" id="save-notice">✓ 苦手単語を保存しました</div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="screen" id="scr-quiz">
+  <div class="prog-wrap">
+    <div class="prog-top">
+      <div class="q-counter">問題 <strong id="q-cur">1</strong> / <span id="q-tot">20</span></div>
+      <div class="streak" id="streak-el">🔥 <span id="str-n">0</span></div>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+  </div>
+  <div class="q-meta-row">
+    <div class="q-num-tag" id="word-num-tag">#001</div>
+    <div class="q-type-tag" id="q-type-tag">EN→JP</div>
+    <div class="q-pos-tag" id="q-pos-tag">動詞</div>
+    <div id="q-lv-tag" class="lv-初級">初級</div>
+  </div>
+  <div class="word-stage">
+    <div id="word-disp" class="word-en">hello</div>
+    <div id="ph-disp" class="word-ph"></div>
+  </div>
+  <div id="choices-wrap" class="choices"></div>
+  <div id="typing-wrap" style="display:none">
+    <div class="type-wrap">
+      <input type="text" class="type-input" id="t-input" placeholder="英単語をスペルで入力..." autocomplete="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkType()">
+      <button class="sub-btn" onclick="checkType()">→</button>
+    </div>
+  </div>
+  <div class="fb" id="fb-el"></div>
+  <button class="next-btn" id="next-btn" onclick="nextQ()">次の問題 →</button>
+</div>
+
+<!-- RESULT -->
+<div class="screen" id="scr-result">
+  <div class="result-card">
+    <div class="r-pct" id="r-pct">0%</div>
+    <div class="r-sub">正解率</div>
+    <div class="r-grade" id="r-grade">🎉</div>
+    <div class="r-msg" id="r-msg"></div>
+    <div class="r-stats">
+      <div class="rs"><div class="rs-l">Correct</div><div class="rs-n" id="rs-cor" style="color:var(--green)">0</div></div>
+      <div class="rs"><div class="rs-l">Wrong</div><div class="rs-n" id="rs-wrg" style="color:var(--red)">0</div></div>
+      <div class="rs"><div class="rs-l">Total</div><div class="rs-n" id="rs-tot">0</div></div>
+      <div class="rs"><div class="rs-l">Streak</div><div class="rs-n" id="rs-str" style="color:var(--gold)">0</div></div>
+    </div>
+  </div>
+  <div class="wrong-sec" id="wrong-sec" style="display:none">
+    <h3>復習リスト</h3>
+    <div id="wrong-list"></div>
+  </div>
+  <div class="acts">
+    <button class="retry-btn" onclick="startQuiz()">もう一度</button>
+    <button class="back-btn" onclick="goStart()">設定に戻る</button>
+  </div>
+  <button class="retry-wrong-btn" id="retry-wrong-btn" onclick="retryWrong()">🔁 間違えた単語だけ復習する</button>
+</div>
+
+</div>
+<script>
+const W=[
+// ── 動詞・初級 ──
+{en:"be",jp:"〜である・存在する",pos:"動詞",lv:"初級"},
+{en:"have",jp:"持っている・食べる",pos:"動詞",lv:"初級"},
+{en:"do",jp:"する・行う",pos:"動詞",lv:"初級"},
+{en:"go",jp:"行く",pos:"動詞",lv:"初級"},
+{en:"come",jp:"来る",pos:"動詞",lv:"初級"},
+{en:"get",jp:"得る・手に入れる・なる",pos:"動詞",lv:"初級"},
+{en:"make",jp:"作る・〜にする",pos:"動詞",lv:"初級"},
+{en:"take",jp:"取る・持っていく・（時間が）かかる",pos:"動詞",lv:"初級"},
+{en:"give",jp:"与える・あげる",pos:"動詞",lv:"初級"},
+{en:"want",jp:"欲しい・したい",pos:"動詞",lv:"初級"},
+{en:"need",jp:"必要とする",pos:"動詞",lv:"初級"},
+{en:"like",jp:"好き・〜のような",pos:"動詞",lv:"初級"},
+{en:"love",jp:"愛する・大好き",pos:"動詞",lv:"初級"},
+{en:"know",jp:"知っている",pos:"動詞",lv:"初級"},
+{en:"think",jp:"思う・考える",pos:"動詞",lv:"初級"},
+{en:"say",jp:"言う",pos:"動詞",lv:"初級"},
+{en:"tell",jp:"伝える・話す",pos:"動詞",lv:"初級"},
+{en:"speak",jp:"話す・喋る",pos:"動詞",lv:"初級"},
+{en:"talk",jp:"話す・会話する",pos:"動詞",lv:"初級"},
+{en:"ask",jp:"尋ねる・頼む",pos:"動詞",lv:"初級"},
+{en:"answer",jp:"答える・返事する",pos:"動詞",lv:"初級"},
+{en:"see",jp:"見る・分かる・会う",pos:"動詞",lv:"初級"},
+{en:"look",jp:"見る・〜に見える",pos:"動詞",lv:"初級"},
+{en:"watch",jp:"（じっと）見る・観る",pos:"動詞",lv:"初級"},
+{en:"hear",jp:"聞こえる",pos:"動詞",lv:"初級"},
+{en:"listen",jp:"聴く",pos:"動詞",lv:"初級"},
+{en:"eat",jp:"食べる",pos:"動詞",lv:"初級"},
+{en:"drink",jp:"飲む",pos:"動詞",lv:"初級"},
+{en:"sleep",jp:"寝る・眠る",pos:"動詞",lv:"初級"},
+{en:"wake",jp:"起きる・目覚める",pos:"動詞",lv:"初級"},
+{en:"work",jp:"働く・機能する",pos:"動詞",lv:"初級"},
+{en:"study",jp:"勉強する",pos:"動詞",lv:"初級"},
+{en:"learn",jp:"学ぶ・習得する",pos:"動詞",lv:"初級"},
+{en:"teach",jp:"教える",pos:"動詞",lv:"初級"},
+{en:"read",jp:"読む",pos:"動詞",lv:"初級"},
+{en:"write",jp:"書く",pos:"動詞",lv:"初級"},
+{en:"call",jp:"電話する・呼ぶ",pos:"動詞",lv:"初級"},
+{en:"meet",jp:"会う・出会う",pos:"動詞",lv:"初級"},
+{en:"help",jp:"助ける・手伝う",pos:"動詞",lv:"初級"},
+{en:"use",jp:"使う・利用する",pos:"動詞",lv:"初級"},
+{en:"try",jp:"試す・挑戦する",pos:"動詞",lv:"初級"},
+{en:"buy",jp:"買う",pos:"動詞",lv:"初級"},
+{en:"sell",jp:"売る",pos:"動詞",lv:"初級"},
+{en:"pay",jp:"払う・支払う",pos:"動詞",lv:"初級"},
+{en:"spend",jp:"（時間・お金を）使う",pos:"動詞",lv:"初級"},
+{en:"cost",jp:"〜の値段がする",pos:"動詞",lv:"初級"},
+{en:"open",jp:"開ける・開く",pos:"動詞",lv:"初級"},
+{en:"close",jp:"閉める・閉まる",pos:"動詞",lv:"初級"},
+{en:"start",jp:"始める・始まる",pos:"動詞",lv:"初級"},
+{en:"stop",jp:"止める・止まる",pos:"動詞",lv:"初級"},
+{en:"finish",jp:"終える・終わる",pos:"動詞",lv:"初級"},
+{en:"wait",jp:"待つ",pos:"動詞",lv:"初級"},
+{en:"leave",jp:"去る・出発する・残す",pos:"動詞",lv:"初級"},
+{en:"stay",jp:"滞在する・留まる",pos:"動詞",lv:"初級"},
+{en:"live",jp:"住む・生きる",pos:"動詞",lv:"初級"},
+{en:"feel",jp:"感じる",pos:"動詞",lv:"初級"},
+{en:"find",jp:"見つける・分かる",pos:"動詞",lv:"初級"},
+{en:"keep",jp:"保つ・続ける",pos:"動詞",lv:"初級"},
+{en:"put",jp:"置く",pos:"動詞",lv:"初級"},
+{en:"bring",jp:"持ってくる・連れてくる",pos:"動詞",lv:"初級"},
+{en:"show",jp:"見せる・示す",pos:"動詞",lv:"初級"},
+{en:"play",jp:"遊ぶ・演奏する",pos:"動詞",lv:"初級"},
+{en:"run",jp:"走る・経営する",pos:"動詞",lv:"初級"},
+{en:"walk",jp:"歩く",pos:"動詞",lv:"初級"},
+{en:"sit",jp:"座る",pos:"動詞",lv:"初級"},
+{en:"stand",jp:"立つ",pos:"動詞",lv:"初級"},
+{en:"move",jp:"動く・引っ越す",pos:"動詞",lv:"初級"},
+{en:"drive",jp:"運転する",pos:"動詞",lv:"初級"},
+{en:"ride",jp:"乗る",pos:"動詞",lv:"初級"},
+{en:"cook",jp:"料理する",pos:"動詞",lv:"初級"},
+{en:"clean",jp:"掃除する・きれいにする",pos:"動詞",lv:"初級"},
+{en:"wash",jp:"洗う",pos:"動詞",lv:"初級"},
+{en:"wear",jp:"着る・身につける",pos:"動詞",lv:"初級"},
+{en:"choose",jp:"選ぶ",pos:"動詞",lv:"初級"},
+{en:"change",jp:"変える・変わる",pos:"動詞",lv:"初級"},
+{en:"remember",jp:"覚えている・思い出す",pos:"動詞",lv:"初級"},
+{en:"forget",jp:"忘れる",pos:"動詞",lv:"初級"},
+{en:"understand",jp:"理解する",pos:"動詞",lv:"初級"},
+{en:"mean",jp:"意味する・〜のつもりだ",pos:"動詞",lv:"初級"},
+{en:"believe",jp:"信じる",pos:"動詞",lv:"初級"},
+{en:"hope",jp:"望む・願う",pos:"動詞",lv:"初級"},
+{en:"enjoy",jp:"楽しむ",pos:"動詞",lv:"初級"},
+{en:"worry",jp:"心配する",pos:"動詞",lv:"初級"},
+{en:"happen",jp:"起こる・生じる",pos:"動詞",lv:"初級"},
+{en:"become",jp:"〜になる",pos:"動詞",lv:"初級"},
+{en:"seem",jp:"〜のようだ・〜に見える",pos:"動詞",lv:"初級"},
+{en:"let",jp:"〜させる",pos:"動詞",lv:"初級"},
+{en:"turn",jp:"回る・曲がる・〜になる",pos:"動詞",lv:"初級"},
+// ── 動詞・中級 ──
+{en:"arrive",jp:"到着する",pos:"動詞",lv:"中級"},
+{en:"return",jp:"戻る・返す",pos:"動詞",lv:"中級"},
+{en:"follow",jp:"従う・ついていく",pos:"動詞",lv:"中級"},
+{en:"lead",jp:"導く・先頭に立つ",pos:"動詞",lv:"中級"},
+{en:"carry",jp:"運ぶ・持ち歩く",pos:"動詞",lv:"中級"},
+{en:"hold",jp:"持つ・開催する",pos:"動詞",lv:"中級"},
+{en:"send",jp:"送る",pos:"動詞",lv:"中級"},
+{en:"receive",jp:"受け取る",pos:"動詞",lv:"中級"},
+{en:"pick",jp:"選ぶ・摘む",pos:"動詞",lv:"中級"},
+{en:"drop",jp:"落とす・降ろす",pos:"動詞",lv:"中級"},
+{en:"check",jp:"確認する・チェックする",pos:"動詞",lv:"中級"},
+{en:"fix",jp:"直す・修理する",pos:"動詞",lv:"中級"},
+{en:"break",jp:"壊す・壊れる",pos:"動詞",lv:"中級"},
+{en:"lose",jp:"失う・負ける",pos:"動詞",lv:"中級"},
+{en:"win",jp:"勝つ・獲得する",pos:"動詞",lv:"中級"},
+{en:"beat",jp:"打つ・打ち負かす",pos:"動詞",lv:"中級"},
+{en:"join",jp:"参加する・加わる",pos:"動詞",lv:"中級"},
+{en:"invite",jp:"招待する",pos:"動詞",lv:"中級"},
+{en:"visit",jp:"訪れる・訪問する",pos:"動詞",lv:"中級"},
+{en:"travel",jp:"旅行する・移動する",pos:"動詞",lv:"中級"},
+{en:"plan",jp:"計画する",pos:"動詞",lv:"中級"},
+{en:"decide",jp:"決める・決心する",pos:"動詞",lv:"中級"},
+{en:"agree",jp:"同意する・賛成する",pos:"動詞",lv:"中級"},
+{en:"disagree",jp:"反対する・意見が違う",pos:"動詞",lv:"中級"},
+{en:"explain",jp:"説明する",pos:"動詞",lv:"中級"},
+{en:"describe",jp:"描写する・説明する",pos:"動詞",lv:"中級"},
+{en:"introduce",jp:"紹介する",pos:"動詞",lv:"中級"},
+{en:"share",jp:"共有する・分け合う",pos:"動詞",lv:"中級"},
+{en:"suggest",jp:"提案する・勧める",pos:"動詞",lv:"中級"},
+{en:"recommend",jp:"おすすめする・推薦する",pos:"動詞",lv:"中級"},
+{en:"order",jp:"注文する・命令する",pos:"動詞",lv:"中級"},
+{en:"book",jp:"予約する",pos:"動詞",lv:"中級"},
+{en:"cancel",jp:"キャンセルする・取り消す",pos:"動詞",lv:"中級"},
+{en:"borrow",jp:"借りる",pos:"動詞",lv:"中級"},
+{en:"lend",jp:"貸す",pos:"動詞",lv:"中級"},
+{en:"save",jp:"節約する・保存する・救う",pos:"動詞",lv:"中級"},
+{en:"waste",jp:"無駄にする",pos:"動詞",lv:"中級"},
+{en:"earn",jp:"稼ぐ",pos:"動詞",lv:"中級"},
+{en:"grow",jp:"育てる・成長する",pos:"動詞",lv:"中級"},
+{en:"build",jp:"建てる・作り上げる",pos:"動詞",lv:"中級"},
+{en:"create",jp:"生み出す・創造する",pos:"動詞",lv:"中級"},
+{en:"develop",jp:"発展させる・開発する",pos:"動詞",lv:"中級"},
+{en:"improve",jp:"改善する・上達する",pos:"動詞",lv:"中級"},
+{en:"reduce",jp:"減らす・削減する",pos:"動詞",lv:"中級"},
+{en:"increase",jp:"増やす・増える",pos:"動詞",lv:"中級"},
+{en:"compare",jp:"比べる",pos:"動詞",lv:"中級"},
+{en:"include",jp:"含む",pos:"動詞",lv:"中級"},
+{en:"avoid",jp:"避ける",pos:"動詞",lv:"中級"},
+{en:"accept",jp:"受け入れる",pos:"動詞",lv:"中級"},
+{en:"refuse",jp:"断る",pos:"動詞",lv:"中級"},
+{en:"offer",jp:"申し出る・提供する",pos:"動詞",lv:"中級"},
+{en:"promise",jp:"約束する",pos:"動詞",lv:"中級"},
+{en:"allow",jp:"許す・許可する",pos:"動詞",lv:"中級"},
+{en:"depend",jp:"頼る・次第である",pos:"動詞",lv:"中級"},
+{en:"prefer",jp:"〜の方が好き",pos:"動詞",lv:"中級"},
+{en:"prepare",jp:"準備する",pos:"動詞",lv:"中級"},
+{en:"practice",jp:"練習する",pos:"動詞",lv:"中級"},
+{en:"realize",jp:"気づく・実現する",pos:"動詞",lv:"中級"},
+{en:"imagine",jp:"想像する",pos:"動詞",lv:"中級"},
+{en:"expect",jp:"期待する・予期する",pos:"動詞",lv:"中級"},
+{en:"notice",jp:"気づく・気がつく",pos:"動詞",lv:"中級"},
+{en:"guess",jp:"推測する・当てる",pos:"動詞",lv:"中級"},
+{en:"suppose",jp:"〜だと思う",pos:"動詞",lv:"中級"},
+{en:"miss",jp:"寂しく思う・乗り遅れる",pos:"動詞",lv:"中級"},
+{en:"mind",jp:"気にする",pos:"動詞",lv:"中級"},
+{en:"care",jp:"気にかける・世話をする",pos:"動詞",lv:"中級"},
+{en:"matter",jp:"重要である",pos:"動詞",lv:"中級"},
+{en:"count",jp:"数える・重要である",pos:"動詞",lv:"中級"},
+{en:"rest",jp:"休む・休憩する",pos:"動詞",lv:"中級"},
+{en:"relax",jp:"リラックスする",pos:"動詞",lv:"中級"},
+{en:"exercise",jp:"運動する",pos:"動詞",lv:"中級"},
+{en:"train",jp:"練習する・トレーニングする",pos:"動詞",lv:"中級"},
+{en:"dance",jp:"踊る",pos:"動詞",lv:"中級"},
+{en:"sing",jp:"歌う",pos:"動詞",lv:"中級"},
+{en:"laugh",jp:"笑う",pos:"動詞",lv:"中級"},
+{en:"cry",jp:"泣く",pos:"動詞",lv:"中級"},
+{en:"smile",jp:"微笑む",pos:"動詞",lv:"中級"},
+{en:"shout",jp:"叫ぶ・大声で言う",pos:"動詞",lv:"中級"},
+{en:"touch",jp:"触れる・感動させる",pos:"動詞",lv:"中級"},
+{en:"push",jp:"押す",pos:"動詞",lv:"中級"},
+{en:"pull",jp:"引く",pos:"動詞",lv:"中級"},
+{en:"pass",jp:"渡す・通り過ぎる",pos:"動詞",lv:"中級"},
+{en:"throw",jp:"投げる",pos:"動詞",lv:"中級"},
+{en:"catch",jp:"捕まえる・乗る",pos:"動詞",lv:"中級"},
+{en:"hit",jp:"打つ・当たる",pos:"動詞",lv:"中級"},
+{en:"cut",jp:"切る",pos:"動詞",lv:"中級"},
+{en:"cover",jp:"覆う・取り扱う",pos:"動詞",lv:"中級"},
+{en:"mix",jp:"混ぜる",pos:"動詞",lv:"中級"},
+{en:"add",jp:"加える・足す",pos:"動詞",lv:"中級"},
+{en:"fill",jp:"満たす・いっぱいにする",pos:"動詞",lv:"中級"},
+{en:"empty",jp:"空にする",pos:"動詞",lv:"中級"},
+{en:"reach",jp:"届く・着く",pos:"動詞",lv:"中級"},
+{en:"enter",jp:"入る",pos:"動詞",lv:"中級"},
+{en:"exit",jp:"出る・退出する",pos:"動詞",lv:"中級"},
+{en:"cross",jp:"横切る・渡る",pos:"動詞",lv:"中級"},
+{en:"climb",jp:"登る",pos:"動詞",lv:"中級"},
+// ── 動詞・上級 ──
+{en:"manage",jp:"なんとかやり遂げる・管理する",pos:"動詞",lv:"上級"},
+{en:"support",jp:"支援する・サポートする",pos:"動詞",lv:"上級"},
+{en:"handle",jp:"対処する・扱う",pos:"動詞",lv:"上級"},
+{en:"solve",jp:"解決する",pos:"動詞",lv:"上級"},
+{en:"achieve",jp:"達成する",pos:"動詞",lv:"上級"},
+{en:"succeed",jp:"成功する",pos:"動詞",lv:"上級"},
+{en:"fail",jp:"失敗する",pos:"動詞",lv:"上級"},
+{en:"continue",jp:"続ける・続く",pos:"動詞",lv:"上級"},
+{en:"consider",jp:"よく考える・検討する",pos:"動詞",lv:"上級"},
+{en:"discuss",jp:"議論する・話し合う",pos:"動詞",lv:"上級"},
+{en:"mention",jp:"言及する",pos:"動詞",lv:"上級"},
+{en:"express",jp:"表現する",pos:"動詞",lv:"上級"},
+{en:"apologize",jp:"謝る・お詫びする",pos:"動詞",lv:"上級"},
+{en:"appreciate",jp:"感謝する・理解する",pos:"動詞",lv:"上級"},
+{en:"confirm",jp:"確認する",pos:"動詞",lv:"上級"},
+{en:"arrange",jp:"手配する・整える",pos:"動詞",lv:"上級"},
+{en:"attend",jp:"出席する・参加する",pos:"動詞",lv:"上級"},
+{en:"contact",jp:"連絡する",pos:"動詞",lv:"上級"},
+{en:"respond",jp:"返答する・反応する",pos:"動詞",lv:"上級"},
+{en:"reply",jp:"返信する・返事をする",pos:"動詞",lv:"上級"},
+{en:"request",jp:"依頼する・お願いする",pos:"動詞",lv:"上級"},
+{en:"require",jp:"必要とする・要求する",pos:"動詞",lv:"上級"},
+{en:"provide",jp:"提供する",pos:"動詞",lv:"上級"},
+{en:"deliver",jp:"届ける・配達する",pos:"動詞",lv:"上級"},
+{en:"protect",jp:"守る・保護する",pos:"動詞",lv:"上級"},
+{en:"prevent",jp:"防ぐ・妨げる",pos:"動詞",lv:"上級"},
+{en:"control",jp:"管理する・コントロールする",pos:"動詞",lv:"上級"},
+{en:"cause",jp:"引き起こす",pos:"動詞",lv:"上級"},
+{en:"affect",jp:"影響を与える",pos:"動詞",lv:"上級"},
+{en:"influence",jp:"影響する",pos:"動詞",lv:"上級"},
+{en:"recognize",jp:"認識する・気づく",pos:"動詞",lv:"上級"},
+{en:"assume",jp:"〜だと思い込む・仮定する",pos:"動詞",lv:"上級"},
+{en:"focus",jp:"集中する",pos:"動詞",lv:"上級"},
+{en:"concentrate",jp:"集中する",pos:"動詞",lv:"上級"},
+{en:"organize",jp:"整理する・まとめる",pos:"動詞",lv:"上級"},
+{en:"design",jp:"設計する・デザインする",pos:"動詞",lv:"上級"},
+{en:"produce",jp:"生産する・作り出す",pos:"動詞",lv:"上級"},
+{en:"analyze",jp:"分析する",pos:"動詞",lv:"上級"},
+{en:"connect",jp:"つなぐ・接続する",pos:"動詞",lv:"上級"},
+{en:"separate",jp:"分ける・離れる",pos:"動詞",lv:"上級"},
+{en:"rely",jp:"頼る・信頼する",pos:"動詞",lv:"上級"},
+{en:"belong",jp:"属する",pos:"動詞",lv:"上級"},
+{en:"remain",jp:"〜のままである",pos:"動詞",lv:"上級"},
+{en:"appear",jp:"現れる・〜のように見える",pos:"動詞",lv:"上級"},
+{en:"disappear",jp:"消える",pos:"動詞",lv:"上級"},
+{en:"survive",jp:"生き残る",pos:"動詞",lv:"上級"},
+{en:"suffer",jp:"苦しむ",pos:"動詞",lv:"上級"},
+{en:"recover",jp:"回復する",pos:"動詞",lv:"上級"},
+{en:"treat",jp:"扱う・治療する",pos:"動詞",lv:"上級"},
+{en:"prove",jp:"証明する",pos:"動詞",lv:"上級"},
+{en:"challenge",jp:"挑戦する",pos:"動詞",lv:"上級"},
+{en:"encourage",jp:"励ます・勇気づける",pos:"動詞",lv:"上級"},
+{en:"motivate",jp:"やる気にさせる",pos:"動詞",lv:"上級"},
+{en:"celebrate",jp:"祝う",pos:"動詞",lv:"上級"},
+{en:"complain",jp:"不満を言う・文句を言う",pos:"動詞",lv:"上級"},
+{en:"argue",jp:"言い争う・主張する",pos:"動詞",lv:"上級"},
+{en:"behave",jp:"振る舞う",pos:"動詞",lv:"上級"},
+{en:"trust",jp:"信頼する",pos:"動詞",lv:"上級"},
+// ── 名詞・初級 ──
+{en:"person",jp:"人",pos:"名詞",lv:"初級"},
+{en:"people",jp:"人々",pos:"名詞",lv:"初級"},
+{en:"man",jp:"男性・男の人",pos:"名詞",lv:"初級"},
+{en:"woman",jp:"女性・女の人",pos:"名詞",lv:"初級"},
+{en:"boy",jp:"男の子",pos:"名詞",lv:"初級"},
+{en:"girl",jp:"女の子",pos:"名詞",lv:"初級"},
+{en:"child",jp:"子ども",pos:"名詞",lv:"初級"},
+{en:"friend",jp:"友達",pos:"名詞",lv:"初級"},
+{en:"family",jp:"家族",pos:"名詞",lv:"初級"},
+{en:"mother",jp:"母・お母さん",pos:"名詞",lv:"初級"},
+{en:"father",jp:"父・お父さん",pos:"名詞",lv:"初級"},
+{en:"parent",jp:"親",pos:"名詞",lv:"初級"},
+{en:"brother",jp:"兄・弟",pos:"名詞",lv:"初級"},
+{en:"sister",jp:"姉・妹",pos:"名詞",lv:"初級"},
+{en:"baby",jp:"赤ちゃん",pos:"名詞",lv:"初級"},
+{en:"name",jp:"名前",pos:"名詞",lv:"初級"},
+{en:"age",jp:"年齢・年代",pos:"名詞",lv:"初級"},
+{en:"job",jp:"仕事・職業",pos:"名詞",lv:"初級"},
+{en:"school",jp:"学校",pos:"名詞",lv:"初級"},
+{en:"student",jp:"生徒・学生",pos:"名詞",lv:"初級"},
+{en:"teacher",jp:"先生・教師",pos:"名詞",lv:"初級"},
+{en:"class",jp:"授業・クラス",pos:"名詞",lv:"初級"},
+{en:"lesson",jp:"レッスン・授業",pos:"名詞",lv:"初級"},
+{en:"homework",jp:"宿題",pos:"名詞",lv:"初級"},
+{en:"pen",jp:"ペン",pos:"名詞",lv:"初級"},
+{en:"paper",jp:"紙・論文",pos:"名詞",lv:"初級"},
+{en:"bag",jp:"バッグ・かばん",pos:"名詞",lv:"初級"},
+{en:"phone",jp:"電話・スマホ",pos:"名詞",lv:"初級"},
+{en:"computer",jp:"コンピューター・パソコン",pos:"名詞",lv:"初級"},
+{en:"desk",jp:"机",pos:"名詞",lv:"初級"},
+{en:"chair",jp:"椅子",pos:"名詞",lv:"初級"},
+{en:"table",jp:"テーブル",pos:"名詞",lv:"初級"},
+{en:"room",jp:"部屋",pos:"名詞",lv:"初級"},
+{en:"house",jp:"家・住宅",pos:"名詞",lv:"初級"},
+{en:"home",jp:"家・自宅",pos:"名詞",lv:"初級"},
+{en:"apartment",jp:"アパート・マンション",pos:"名詞",lv:"初級"},
+{en:"door",jp:"ドア",pos:"名詞",lv:"初級"},
+{en:"window",jp:"窓",pos:"名詞",lv:"初級"},
+{en:"bed",jp:"ベッド",pos:"名詞",lv:"初級"},
+{en:"bathroom",jp:"お風呂・トイレ",pos:"名詞",lv:"初級"},
+{en:"kitchen",jp:"キッチン・台所",pos:"名詞",lv:"初級"},
+{en:"floor",jp:"床・階",pos:"名詞",lv:"初級"},
+{en:"wall",jp:"壁",pos:"名詞",lv:"初級"},
+{en:"light",jp:"電気・光",pos:"名詞",lv:"初級"},
+{en:"key",jp:"鍵",pos:"名詞",lv:"初級"},
+{en:"car",jp:"車",pos:"名詞",lv:"初級"},
+{en:"bus",jp:"バス",pos:"名詞",lv:"初級"},
+{en:"taxi",jp:"タクシー",pos:"名詞",lv:"初級"},
+{en:"station",jp:"駅",pos:"名詞",lv:"初級"},
+{en:"airport",jp:"空港",pos:"名詞",lv:"初級"},
+{en:"street",jp:"通り・道",pos:"名詞",lv:"初級"},
+{en:"road",jp:"道路",pos:"名詞",lv:"初級"},
+{en:"city",jp:"都市・市",pos:"名詞",lv:"初級"},
+{en:"town",jp:"町",pos:"名詞",lv:"初級"},
+{en:"country",jp:"国・田舎",pos:"名詞",lv:"初級"},
+{en:"place",jp:"場所",pos:"名詞",lv:"初級"},
+{en:"shop",jp:"店",pos:"名詞",lv:"初級"},
+{en:"store",jp:"店・商店",pos:"名詞",lv:"初級"},
+{en:"restaurant",jp:"レストラン",pos:"名詞",lv:"初級"},
+{en:"cafe",jp:"カフェ",pos:"名詞",lv:"初級"},
+{en:"hotel",jp:"ホテル",pos:"名詞",lv:"初級"},
+{en:"hospital",jp:"病院",pos:"名詞",lv:"初級"},
+{en:"bank",jp:"銀行",pos:"名詞",lv:"初級"},
+{en:"park",jp:"公園",pos:"名詞",lv:"初級"},
+{en:"office",jp:"オフィス・事務所",pos:"名詞",lv:"初級"},
+{en:"library",jp:"図書館",pos:"名詞",lv:"初級"},
+{en:"toilet",jp:"トイレ",pos:"名詞",lv:"初級"},
+{en:"food",jp:"食べ物・食料",pos:"名詞",lv:"初級"},
+{en:"water",jp:"水",pos:"名詞",lv:"初級"},
+{en:"coffee",jp:"コーヒー",pos:"名詞",lv:"初級"},
+{en:"tea",jp:"お茶",pos:"名詞",lv:"初級"},
+{en:"milk",jp:"牛乳・ミルク",pos:"名詞",lv:"初級"},
+{en:"juice",jp:"ジュース",pos:"名詞",lv:"初級"},
+{en:"rice",jp:"ご飯・米",pos:"名詞",lv:"初級"},
+{en:"bread",jp:"パン",pos:"名詞",lv:"初級"},
+{en:"meat",jp:"肉",pos:"名詞",lv:"初級"},
+{en:"fish",jp:"魚",pos:"名詞",lv:"初級"},
+{en:"chicken",jp:"鶏肉・チキン",pos:"名詞",lv:"初級"},
+{en:"egg",jp:"卵",pos:"名詞",lv:"初級"},
+{en:"vegetable",jp:"野菜",pos:"名詞",lv:"初級"},
+{en:"fruit",jp:"果物",pos:"名詞",lv:"初級"},
+{en:"apple",jp:"りんご",pos:"名詞",lv:"初級"},
+{en:"banana",jp:"バナナ",pos:"名詞",lv:"初級"},
+{en:"orange",jp:"オレンジ",pos:"名詞",lv:"初級"},
+{en:"cake",jp:"ケーキ",pos:"名詞",lv:"初級"},
+{en:"breakfast",jp:"朝食",pos:"名詞",lv:"初級"},
+{en:"lunch",jp:"昼食",pos:"名詞",lv:"初級"},
+{en:"dinner",jp:"夕食",pos:"名詞",lv:"初級"},
+{en:"meal",jp:"食事",pos:"名詞",lv:"初級"},
+{en:"money",jp:"お金",pos:"名詞",lv:"初級"},
+{en:"price",jp:"値段・価格",pos:"名詞",lv:"初級"},
+{en:"ticket",jp:"チケット",pos:"名詞",lv:"初級"},
+{en:"card",jp:"カード",pos:"名詞",lv:"初級"},
+{en:"cash",jp:"現金",pos:"名詞",lv:"初級"},
+{en:"time",jp:"時間・時",pos:"名詞",lv:"初級"},
+{en:"day",jp:"日・1日",pos:"名詞",lv:"初級"},
+{en:"week",jp:"週",pos:"名詞",lv:"初級"},
+{en:"month",jp:"月",pos:"名詞",lv:"初級"},
+{en:"year",jp:"年",pos:"名詞",lv:"初級"},
+{en:"morning",jp:"朝",pos:"名詞",lv:"初級"},
+{en:"afternoon",jp:"午後",pos:"名詞",lv:"初級"},
+{en:"evening",jp:"夕方・夜",pos:"名詞",lv:"初級"},
+{en:"night",jp:"夜",pos:"名詞",lv:"初級"},
+{en:"today",jp:"今日",pos:"名詞",lv:"初級"},
+{en:"tomorrow",jp:"明日",pos:"名詞",lv:"初級"},
+{en:"yesterday",jp:"昨日",pos:"名詞",lv:"初級"},
+{en:"weekend",jp:"週末",pos:"名詞",lv:"初級"},
+{en:"birthday",jp:"誕生日",pos:"名詞",lv:"初級"},
+// ── 名詞・中級 ──
+{en:"weather",jp:"天気",pos:"名詞",lv:"中級"},
+{en:"rain",jp:"雨",pos:"名詞",lv:"中級"},
+{en:"snow",jp:"雪",pos:"名詞",lv:"中級"},
+{en:"wind",jp:"風",pos:"名詞",lv:"中級"},
+{en:"sun",jp:"太陽",pos:"名詞",lv:"中級"},
+{en:"temperature",jp:"気温・温度",pos:"名詞",lv:"中級"},
+{en:"season",jp:"季節",pos:"名詞",lv:"中級"},
+{en:"spring",jp:"春",pos:"名詞",lv:"中級"},
+{en:"summer",jp:"夏",pos:"名詞",lv:"中級"},
+{en:"fall",jp:"秋",pos:"名詞",lv:"中級"},
+{en:"winter",jp:"冬",pos:"名詞",lv:"中級"},
+{en:"clothes",jp:"服・衣服",pos:"名詞",lv:"中級"},
+{en:"shirt",jp:"シャツ",pos:"名詞",lv:"中級"},
+{en:"pants",jp:"ズボン・パンツ",pos:"名詞",lv:"中級"},
+{en:"shoes",jp:"靴",pos:"名詞",lv:"中級"},
+{en:"coat",jp:"コート",pos:"名詞",lv:"中級"},
+{en:"hat",jp:"帽子",pos:"名詞",lv:"中級"},
+{en:"dress",jp:"ドレス・ワンピース",pos:"名詞",lv:"中級"},
+{en:"color",jp:"色",pos:"名詞",lv:"中級"},
+{en:"size",jp:"サイズ・大きさ",pos:"名詞",lv:"中級"},
+{en:"music",jp:"音楽",pos:"名詞",lv:"中級"},
+{en:"song",jp:"歌・曲",pos:"名詞",lv:"中級"},
+{en:"movie",jp:"映画",pos:"名詞",lv:"中級"},
+{en:"game",jp:"ゲーム・試合",pos:"名詞",lv:"中級"},
+{en:"sport",jp:"スポーツ",pos:"名詞",lv:"中級"},
+{en:"soccer",jp:"サッカー",pos:"名詞",lv:"中級"},
+{en:"tennis",jp:"テニス",pos:"名詞",lv:"中級"},
+{en:"gym",jp:"ジム",pos:"名詞",lv:"中級"},
+{en:"hobby",jp:"趣味",pos:"名詞",lv:"中級"},
+{en:"trip",jp:"旅行・小旅行",pos:"名詞",lv:"中級"},
+{en:"vacation",jp:"休暇・バカンス",pos:"名詞",lv:"中級"},
+{en:"holiday",jp:"休日・祝日",pos:"名詞",lv:"中級"},
+{en:"schedule",jp:"スケジュール・予定",pos:"名詞",lv:"中級"},
+{en:"appointment",jp:"予約・約束",pos:"名詞",lv:"中級"},
+{en:"meeting",jp:"会議・打ち合わせ",pos:"名詞",lv:"中級"},
+{en:"date",jp:"日付・デート",pos:"名詞",lv:"中級"},
+{en:"party",jp:"パーティー",pos:"名詞",lv:"中級"},
+{en:"event",jp:"イベント",pos:"名詞",lv:"中級"},
+{en:"festival",jp:"お祭り・フェスティバル",pos:"名詞",lv:"中級"},
+{en:"photo",jp:"写真",pos:"名詞",lv:"中級"},
+{en:"picture",jp:"絵・写真",pos:"名詞",lv:"中級"},
+{en:"camera",jp:"カメラ",pos:"名詞",lv:"中級"},
+{en:"message",jp:"メッセージ",pos:"名詞",lv:"中級"},
+{en:"email",jp:"メール",pos:"名詞",lv:"中級"},
+{en:"letter",jp:"手紙",pos:"名詞",lv:"中級"},
+{en:"news",jp:"ニュース",pos:"名詞",lv:"中級"},
+{en:"internet",jp:"インターネット",pos:"名詞",lv:"中級"},
+{en:"website",jp:"ウェブサイト",pos:"名詞",lv:"中級"},
+{en:"app",jp:"アプリ",pos:"名詞",lv:"中級"},
+{en:"password",jp:"パスワード",pos:"名詞",lv:"中級"},
+{en:"address",jp:"住所・アドレス",pos:"名詞",lv:"中級"},
+{en:"map",jp:"地図",pos:"名詞",lv:"中級"},
+{en:"problem",jp:"問題・困りごと",pos:"名詞",lv:"中級"},
+{en:"question",jp:"質問",pos:"名詞",lv:"中級"},
+{en:"idea",jp:"アイデア・考え",pos:"名詞",lv:"中級"},
+{en:"opinion",jp:"意見",pos:"名詞",lv:"中級"},
+{en:"reason",jp:"理由",pos:"名詞",lv:"中級"},
+{en:"example",jp:"例・例え",pos:"名詞",lv:"中級"},
+{en:"story",jp:"話・物語",pos:"名詞",lv:"中級"},
+{en:"joke",jp:"冗談",pos:"名詞",lv:"中級"},
+{en:"mistake",jp:"間違い・ミス",pos:"名詞",lv:"中級"},
+{en:"chance",jp:"チャンス・機会",pos:"名詞",lv:"中級"},
+{en:"choice",jp:"選択",pos:"名詞",lv:"中級"},
+{en:"difference",jp:"違い",pos:"名詞",lv:"中級"},
+{en:"experience",jp:"経験",pos:"名詞",lv:"中級"},
+{en:"memory",jp:"記憶・思い出",pos:"名詞",lv:"中級"},
+{en:"dream",jp:"夢",pos:"名詞",lv:"中級"},
+{en:"goal",jp:"目標・ゴール",pos:"名詞",lv:"中級"},
+{en:"habit",jp:"習慣",pos:"名詞",lv:"中級"},
+{en:"rule",jp:"ルール・規則",pos:"名詞",lv:"中級"},
+{en:"way",jp:"方法・道",pos:"名詞",lv:"中級"},
+{en:"thing",jp:"もの・こと",pos:"名詞",lv:"中級"},
+{en:"part",jp:"部分",pos:"名詞",lv:"中級"},
+{en:"side",jp:"側・面",pos:"名詞",lv:"中級"},
+{en:"point",jp:"ポイント・要点",pos:"名詞",lv:"中級"},
+{en:"case",jp:"場合・ケース",pos:"名詞",lv:"中級"},
+{en:"fact",jp:"事実",pos:"名詞",lv:"中級"},
+{en:"result",jp:"結果",pos:"名詞",lv:"中級"},
+{en:"level",jp:"レベル",pos:"名詞",lv:"中級"},
+{en:"type",jp:"タイプ・種類",pos:"名詞",lv:"中級"},
+{en:"kind",jp:"種類",pos:"名詞",lv:"中級"},
+{en:"area",jp:"エリア・地域",pos:"名詞",lv:"中級"},
+{en:"line",jp:"線・列",pos:"名詞",lv:"中級"},
+{en:"list",jp:"リスト",pos:"名詞",lv:"中級"},
+{en:"number",jp:"数・番号",pos:"名詞",lv:"中級"},
+{en:"word",jp:"単語・言葉",pos:"名詞",lv:"中級"},
+{en:"sentence",jp:"文章・センテンス",pos:"名詞",lv:"中級"},
+{en:"language",jp:"言語",pos:"名詞",lv:"中級"},
+{en:"conversation",jp:"会話",pos:"名詞",lv:"中級"},
+{en:"voice",jp:"声",pos:"名詞",lv:"中級"},
+{en:"sound",jp:"音・音声",pos:"名詞",lv:"中級"},
+{en:"noise",jp:"騒音",pos:"名詞",lv:"中級"},
+{en:"health",jp:"健康",pos:"名詞",lv:"中級"},
+{en:"body",jp:"体",pos:"名詞",lv:"中級"},
+{en:"head",jp:"頭",pos:"名詞",lv:"中級"},
+{en:"face",jp:"顔",pos:"名詞",lv:"中級"},
+{en:"eye",jp:"目",pos:"名詞",lv:"中級"},
+{en:"ear",jp:"耳",pos:"名詞",lv:"中級"},
+{en:"nose",jp:"鼻",pos:"名詞",lv:"中級"},
+{en:"mouth",jp:"口",pos:"名詞",lv:"中級"},
+{en:"tooth",jp:"歯",pos:"名詞",lv:"中級"},
+{en:"hand",jp:"手",pos:"名詞",lv:"中級"},
+{en:"arm",jp:"腕",pos:"名詞",lv:"中級"},
+{en:"leg",jp:"脚",pos:"名詞",lv:"中級"},
+{en:"foot",jp:"足（足首から下）",pos:"名詞",lv:"中級"},
+{en:"back",jp:"背中・後ろ",pos:"名詞",lv:"中級"},
+{en:"stomach",jp:"お腹・胃",pos:"名詞",lv:"中級"},
+{en:"heart",jp:"心臓・心",pos:"名詞",lv:"中級"},
+{en:"doctor",jp:"医者",pos:"名詞",lv:"中級"},
+{en:"nurse",jp:"看護師",pos:"名詞",lv:"中級"},
+{en:"medicine",jp:"薬・医学",pos:"名詞",lv:"中級"},
+{en:"pain",jp:"痛み",pos:"名詞",lv:"中級"},
+{en:"cold",jp:"風邪",pos:"名詞",lv:"中級"},
+{en:"fever",jp:"熱・発熱",pos:"名詞",lv:"中級"},
+{en:"accident",jp:"事故",pos:"名詞",lv:"中級"},
+{en:"police",jp:"警察",pos:"名詞",lv:"中級"},
+{en:"fire",jp:"火・火事",pos:"名詞",lv:"中級"},
+{en:"danger",jp:"危険",pos:"名詞",lv:"中級"},
+{en:"safety",jp:"安全",pos:"名詞",lv:"中級"},
+// ── 名詞・上級 ──
+{en:"feeling",jp:"感情・気持ち",pos:"名詞",lv:"上級"},
+{en:"emotion",jp:"感情",pos:"名詞",lv:"上級"},
+{en:"mood",jp:"気分・雰囲気",pos:"名詞",lv:"上級"},
+{en:"stress",jp:"ストレス",pos:"名詞",lv:"上級"},
+{en:"pressure",jp:"プレッシャー・圧力",pos:"名詞",lv:"上級"},
+{en:"confidence",jp:"自信",pos:"名詞",lv:"上級"},
+{en:"courage",jp:"勇気",pos:"名詞",lv:"上級"},
+{en:"fear",jp:"恐れ・恐怖",pos:"名詞",lv:"上級"},
+{en:"anger",jp:"怒り",pos:"名詞",lv:"上級"},
+{en:"sadness",jp:"悲しみ",pos:"名詞",lv:"上級"},
+{en:"happiness",jp:"幸福・幸せ",pos:"名詞",lv:"上級"},
+{en:"surprise",jp:"驚き",pos:"名詞",lv:"上級"},
+{en:"interest",jp:"興味・関心",pos:"名詞",lv:"上級"},
+{en:"attention",jp:"注意・関心",pos:"名詞",lv:"上級"},
+{en:"effort",jp:"努力",pos:"名詞",lv:"上級"},
+{en:"energy",jp:"エネルギー・活力",pos:"名詞",lv:"上級"},
+{en:"motivation",jp:"やる気・モチベーション",pos:"名詞",lv:"上級"},
+{en:"ability",jp:"能力・スキル",pos:"名詞",lv:"上級"},
+{en:"skill",jp:"スキル・技能",pos:"名詞",lv:"上級"},
+{en:"talent",jp:"才能",pos:"名詞",lv:"上級"},
+{en:"strength",jp:"強さ・強み",pos:"名詞",lv:"上級"},
+{en:"weakness",jp:"弱さ・弱点",pos:"名詞",lv:"上級"},
+{en:"success",jp:"成功",pos:"名詞",lv:"上級"},
+{en:"failure",jp:"失敗",pos:"名詞",lv:"上級"},
+{en:"progress",jp:"進歩・進展",pos:"名詞",lv:"上級"},
+{en:"growth",jp:"成長",pos:"名詞",lv:"上級"},
+{en:"improvement",jp:"改善・向上",pos:"名詞",lv:"上級"},
+{en:"opportunity",jp:"機会・チャンス",pos:"名詞",lv:"上級"},
+{en:"decision",jp:"決定・決断",pos:"名詞",lv:"上級"},
+{en:"responsibility",jp:"責任",pos:"名詞",lv:"上級"},
+{en:"relationship",jp:"関係・人間関係",pos:"名詞",lv:"上級"},
+{en:"communication",jp:"コミュニケーション",pos:"名詞",lv:"上級"},
+{en:"culture",jp:"文化",pos:"名詞",lv:"上級"},
+{en:"society",jp:"社会",pos:"名詞",lv:"上級"},
+{en:"community",jp:"コミュニティ・地域",pos:"名詞",lv:"上級"},
+{en:"environment",jp:"環境",pos:"名詞",lv:"上級"},
+{en:"nature",jp:"自然",pos:"名詞",lv:"上級"},
+{en:"world",jp:"世界",pos:"名詞",lv:"上級"},
+{en:"life",jp:"人生・生活",pos:"名詞",lv:"上級"},
+{en:"future",jp:"未来・将来",pos:"名詞",lv:"上級"},
+{en:"past",jp:"過去",pos:"名詞",lv:"上級"},
+{en:"present",jp:"現在・プレゼント",pos:"名詞",lv:"上級"},
+{en:"history",jp:"歴史",pos:"名詞",lv:"上級"},
+{en:"science",jp:"科学",pos:"名詞",lv:"上級"},
+{en:"technology",jp:"テクノロジー・技術",pos:"名詞",lv:"上級"},
+{en:"business",jp:"ビジネス・仕事",pos:"名詞",lv:"上級"},
+{en:"customer",jp:"客・顧客",pos:"名詞",lv:"上級"},
+{en:"client",jp:"クライアント・依頼人",pos:"名詞",lv:"上級"},
+{en:"product",jp:"製品・商品",pos:"名詞",lv:"上級"},
+{en:"service",jp:"サービス",pos:"名詞",lv:"上級"},
+{en:"market",jp:"市場・マーケット",pos:"名詞",lv:"上級"},
+{en:"profit",jp:"利益",pos:"名詞",lv:"上級"},
+{en:"budget",jp:"予算",pos:"名詞",lv:"上級"},
+{en:"project",jp:"プロジェクト",pos:"名詞",lv:"上級"},
+{en:"task",jp:"タスク・課題",pos:"名詞",lv:"上級"},
+{en:"team",jp:"チーム",pos:"名詞",lv:"上級"},
+{en:"member",jp:"メンバー・会員",pos:"名詞",lv:"上級"},
+{en:"leader",jp:"リーダー",pos:"名詞",lv:"上級"},
+{en:"manager",jp:"マネージャー・管理職",pos:"名詞",lv:"上級"},
+{en:"staff",jp:"スタッフ",pos:"名詞",lv:"上級"},
+{en:"report",jp:"レポート・報告",pos:"名詞",lv:"上級"},
+{en:"document",jp:"書類・ドキュメント",pos:"名詞",lv:"上級"},
+{en:"presentation",jp:"プレゼン",pos:"名詞",lv:"上級"},
+{en:"information",jp:"情報",pos:"名詞",lv:"上級"},
+{en:"data",jp:"データ",pos:"名詞",lv:"上級"},
+{en:"detail",jp:"詳細",pos:"名詞",lv:"上級"},
+{en:"quality",jp:"品質・質",pos:"名詞",lv:"上級"},
+{en:"value",jp:"価値",pos:"名詞",lv:"上級"},
+{en:"benefit",jp:"メリット・利益",pos:"名詞",lv:"上級"},
+{en:"risk",jp:"リスク・危険",pos:"名詞",lv:"上級"},
+{en:"issue",jp:"問題・課題",pos:"名詞",lv:"上級"},
+{en:"solution",jp:"解決策",pos:"名詞",lv:"上級"},
+{en:"method",jp:"方法・手段",pos:"名詞",lv:"上級"},
+{en:"system",jp:"システム",pos:"名詞",lv:"上級"},
+{en:"process",jp:"プロセス・過程",pos:"名詞",lv:"上級"},
+{en:"purpose",jp:"目的",pos:"名詞",lv:"上級"},
+{en:"effect",jp:"効果・影響",pos:"名詞",lv:"上級"},
+{en:"situation",jp:"状況",pos:"名詞",lv:"上級"},
+{en:"condition",jp:"状態・条件",pos:"名詞",lv:"上級"},
+{en:"knowledge",jp:"知識",pos:"名詞",lv:"上級"},
+{en:"education",jp:"教育",pos:"名詞",lv:"上級"},
+{en:"training",jp:"トレーニング・研修",pos:"名詞",lv:"上級"},
+{en:"advice",jp:"アドバイス・助言",pos:"名詞",lv:"上級"},
+{en:"agreement",jp:"合意・同意",pos:"名詞",lv:"上級"},
+{en:"strategy",jp:"戦略",pos:"名詞",lv:"上級"},
+// ── 形容詞・初級 ──
+{en:"good",jp:"良い",pos:"形容詞",lv:"初級"},
+{en:"bad",jp:"悪い",pos:"形容詞",lv:"初級"},
+{en:"nice",jp:"素敵な・良い",pos:"形容詞",lv:"初級"},
+{en:"great",jp:"素晴らしい・最高",pos:"形容詞",lv:"初級"},
+{en:"fine",jp:"大丈夫・良い",pos:"形容詞",lv:"初級"},
+{en:"okay",jp:"大丈夫・OK",pos:"形容詞",lv:"初級"},
+{en:"happy",jp:"幸せな・嬉しい",pos:"形容詞",lv:"初級"},
+{en:"sad",jp:"悲しい",pos:"形容詞",lv:"初級"},
+{en:"angry",jp:"怒っている",pos:"形容詞",lv:"初級"},
+{en:"tired",jp:"疲れた",pos:"形容詞",lv:"初級"},
+{en:"sleepy",jp:"眠い",pos:"形容詞",lv:"初級"},
+{en:"hungry",jp:"お腹が空いた",pos:"形容詞",lv:"初級"},
+{en:"thirsty",jp:"喉が渇いた",pos:"形容詞",lv:"初級"},
+{en:"sick",jp:"気分が悪い・病気の",pos:"形容詞",lv:"初級"},
+{en:"busy",jp:"忙しい",pos:"形容詞",lv:"初級"},
+{en:"free",jp:"暇な・無料の",pos:"形容詞",lv:"初級"},
+{en:"easy",jp:"簡単な",pos:"形容詞",lv:"初級"},
+{en:"difficult",jp:"難しい",pos:"形容詞",lv:"初級"},
+{en:"hard",jp:"難しい・固い",pos:"形容詞",lv:"初級"},
+{en:"simple",jp:"シンプルな・簡単な",pos:"形容詞",lv:"初級"},
+{en:"big",jp:"大きい",pos:"形容詞",lv:"初級"},
+{en:"small",jp:"小さい",pos:"形容詞",lv:"初級"},
+{en:"large",jp:"大きい",pos:"形容詞",lv:"初級"},
+{en:"little",jp:"小さい・少し",pos:"形容詞",lv:"初級"},
+{en:"long",jp:"長い",pos:"形容詞",lv:"初級"},
+{en:"short",jp:"短い・低い",pos:"形容詞",lv:"初級"},
+{en:"tall",jp:"背が高い",pos:"形容詞",lv:"初級"},
+{en:"high",jp:"高い",pos:"形容詞",lv:"初級"},
+{en:"low",jp:"低い",pos:"形容詞",lv:"初級"},
+{en:"old",jp:"古い・年を取った",pos:"形容詞",lv:"初級"},
+{en:"new",jp:"新しい",pos:"形容詞",lv:"初級"},
+{en:"young",jp:"若い",pos:"形容詞",lv:"初級"},
+{en:"hot",jp:"熱い・暑い",pos:"形容詞",lv:"初級"},
+{en:"warm",jp:"温かい・暖かい",pos:"形容詞",lv:"初級"},
+{en:"cool",jp:"涼しい・かっこいい",pos:"形容詞",lv:"初級"},
+{en:"dirty",jp:"汚い",pos:"形容詞",lv:"初級"},
+{en:"beautiful",jp:"美しい・きれいな",pos:"形容詞",lv:"初級"},
+{en:"cute",jp:"かわいい",pos:"形容詞",lv:"初級"},
+{en:"pretty",jp:"かわいい・きれいな",pos:"形容詞",lv:"初級"},
+{en:"ugly",jp:"醜い",pos:"形容詞",lv:"初級"},
+{en:"fast",jp:"速い",pos:"形容詞",lv:"初級"},
+{en:"slow",jp:"遅い",pos:"形容詞",lv:"初級"},
+{en:"early",jp:"早い",pos:"形容詞",lv:"初級"},
+{en:"late",jp:"遅い・遅刻した",pos:"形容詞",lv:"初級"},
+{en:"strong",jp:"強い",pos:"形容詞",lv:"初級"},
+{en:"weak",jp:"弱い",pos:"形容詞",lv:"初級"},
+{en:"rich",jp:"お金持ちの・豊かな",pos:"形容詞",lv:"初級"},
+{en:"poor",jp:"貧しい・かわいそうな",pos:"形容詞",lv:"初級"},
+{en:"full",jp:"いっぱいの・お腹がいっぱい",pos:"形容詞",lv:"初級"},
+{en:"right",jp:"正しい・右の",pos:"形容詞",lv:"初級"},
+{en:"wrong",jp:"間違った",pos:"形容詞",lv:"初級"},
+{en:"same",jp:"同じ",pos:"形容詞",lv:"初級"},
+{en:"different",jp:"違う・異なる",pos:"形容詞",lv:"初級"},
+{en:"important",jp:"重要な・大切な",pos:"形容詞",lv:"初級"},
+{en:"interesting",jp:"面白い・興味深い",pos:"形容詞",lv:"初級"},
+{en:"boring",jp:"退屈な",pos:"形容詞",lv:"初級"},
+{en:"fun",jp:"楽しい",pos:"形容詞",lv:"初級"},
+{en:"funny",jp:"面白い・おかしい",pos:"形容詞",lv:"初級"},
+{en:"friendly",jp:"友好的な・親しみやすい",pos:"形容詞",lv:"初級"},
+{en:"quiet",jp:"静かな",pos:"形容詞",lv:"初級"},
+{en:"loud",jp:"うるさい・大きな",pos:"形容詞",lv:"初級"},
+{en:"cheap",jp:"安い",pos:"形容詞",lv:"初級"},
+{en:"expensive",jp:"高い（値段が）",pos:"形容詞",lv:"初級"},
+{en:"safe",jp:"安全な",pos:"形容詞",lv:"初級"},
+{en:"dangerous",jp:"危険な",pos:"形容詞",lv:"初級"},
+{en:"ready",jp:"準備ができた",pos:"形容詞",lv:"初級"},
+{en:"sorry",jp:"ごめんなさい・残念な",pos:"形容詞",lv:"初級"},
+{en:"sure",jp:"確かな・もちろん",pos:"形容詞",lv:"初級"},
+{en:"true",jp:"本当の・真実の",pos:"形容詞",lv:"初級"},
+{en:"false",jp:"偽の・間違った",pos:"形容詞",lv:"初級"},
+// ── 形容詞・中級 ──
+{en:"comfortable",jp:"快適な・楽な",pos:"形容詞",lv:"中級"},
+{en:"uncomfortable",jp:"不快な・居心地が悪い",pos:"形容詞",lv:"中級"},
+{en:"careful",jp:"注意深い",pos:"形容詞",lv:"中級"},
+{en:"careless",jp:"不注意な",pos:"形容詞",lv:"中級"},
+{en:"useful",jp:"役立つ",pos:"形容詞",lv:"中級"},
+{en:"useless",jp:"役に立たない",pos:"形容詞",lv:"中級"},
+{en:"helpful",jp:"役に立つ・助けになる",pos:"形容詞",lv:"中級"},
+{en:"popular",jp:"人気のある",pos:"形容詞",lv:"中級"},
+{en:"famous",jp:"有名な",pos:"形容詞",lv:"中級"},
+{en:"special",jp:"特別な",pos:"形容詞",lv:"中級"},
+{en:"normal",jp:"普通の",pos:"形容詞",lv:"中級"},
+{en:"usual",jp:"いつもの",pos:"形容詞",lv:"中級"},
+{en:"common",jp:"一般的な・よくある",pos:"形容詞",lv:"中級"},
+{en:"strange",jp:"奇妙な",pos:"形容詞",lv:"中級"},
+{en:"weird",jp:"変な・不思議な",pos:"形容詞",lv:"中級"},
+{en:"serious",jp:"真剣な・深刻な",pos:"形容詞",lv:"中級"},
+{en:"honest",jp:"正直な",pos:"形容詞",lv:"中級"},
+{en:"polite",jp:"礼儀正しい",pos:"形容詞",lv:"中級"},
+{en:"rude",jp:"失礼な",pos:"形容詞",lv:"中級"},
+{en:"smart",jp:"賢い・頭がいい",pos:"形容詞",lv:"中級"},
+{en:"clever",jp:"賢い・利口な",pos:"形容詞",lv:"中級"},
+{en:"stupid",jp:"馬鹿な・愚かな",pos:"形容詞",lv:"中級"},
+{en:"nervous",jp:"緊張した",pos:"形容詞",lv:"中級"},
+{en:"excited",jp:"興奮した・ワクワクした",pos:"形容詞",lv:"中級"},
+{en:"surprised",jp:"驚いた",pos:"形容詞",lv:"中級"},
+{en:"worried",jp:"心配した",pos:"形容詞",lv:"中級"},
+{en:"afraid",jp:"恐れている",pos:"形容詞",lv:"中級"},
+{en:"lonely",jp:"孤独な・寂しい",pos:"形容詞",lv:"中級"},
+{en:"relaxed",jp:"リラックスした",pos:"形容詞",lv:"中級"},
+{en:"bored",jp:"退屈した",pos:"形容詞",lv:"中級"},
+{en:"confused",jp:"混乱した",pos:"形容詞",lv:"中級"},
+{en:"interested",jp:"興味がある",pos:"形容詞",lv:"中級"},
+{en:"disappointed",jp:"がっかりした",pos:"形容詞",lv:"中級"},
+{en:"proud",jp:"誇りに思う",pos:"形容詞",lv:"中級"},
+{en:"thankful",jp:"感謝している",pos:"形容詞",lv:"中級"},
+{en:"lucky",jp:"ラッキーな・運がいい",pos:"形容詞",lv:"中級"},
+{en:"unlucky",jp:"運が悪い",pos:"形容詞",lv:"中級"},
+{en:"available",jp:"利用可能な・空いている",pos:"形容詞",lv:"中級"},
+{en:"possible",jp:"可能な",pos:"形容詞",lv:"中級"},
+{en:"impossible",jp:"不可能な",pos:"形容詞",lv:"中級"},
+{en:"correct",jp:"正しい",pos:"形容詞",lv:"中級"},
+{en:"incorrect",jp:"間違っている",pos:"形容詞",lv:"中級"},
+{en:"clear",jp:"はっきりした・明確な",pos:"形容詞",lv:"中級"},
+{en:"unclear",jp:"不明確な",pos:"形容詞",lv:"中級"},
+{en:"natural",jp:"自然な",pos:"形容詞",lv:"中級"},
+{en:"foreign",jp:"外国の",pos:"形容詞",lv:"中級"},
+{en:"local",jp:"地元の",pos:"形容詞",lv:"中級"},
+{en:"personal",jp:"個人的な",pos:"形容詞",lv:"中級"},
+{en:"public",jp:"公の・公共の",pos:"形容詞",lv:"中級"},
+{en:"private",jp:"プライベートな・個人の",pos:"形容詞",lv:"中級"},
+{en:"healthy",jp:"健康的な",pos:"形容詞",lv:"中級"},
+{en:"unhealthy",jp:"健康に悪い",pos:"形容詞",lv:"中級"},
+{en:"fresh",jp:"新鮮な",pos:"形容詞",lv:"中級"},
+{en:"delicious",jp:"おいしい",pos:"形容詞",lv:"中級"},
+{en:"sweet",jp:"甘い・優しい",pos:"形容詞",lv:"中級"},
+{en:"salty",jp:"塩辛い",pos:"形容詞",lv:"中級"},
+{en:"spicy",jp:"辛い",pos:"形容詞",lv:"中級"},
+{en:"bitter",jp:"苦い",pos:"形容詞",lv:"中級"},
+{en:"soft",jp:"柔らかい",pos:"形容詞",lv:"中級"},
+{en:"heavy",jp:"重い",pos:"形容詞",lv:"中級"},
+{en:"bright",jp:"明るい",pos:"形容詞",lv:"中級"},
+{en:"dark",jp:"暗い",pos:"形容詞",lv:"中級"},
+{en:"deep",jp:"深い",pos:"形容詞",lv:"中級"},
+{en:"shallow",jp:"浅い",pos:"形容詞",lv:"中級"},
+{en:"wide",jp:"広い",pos:"形容詞",lv:"中級"},
+{en:"narrow",jp:"狭い",pos:"形容詞",lv:"中級"},
+{en:"thick",jp:"厚い",pos:"形容詞",lv:"中級"},
+{en:"thin",jp:"薄い・細い",pos:"形容詞",lv:"中級"},
+{en:"dry",jp:"乾いた",pos:"形容詞",lv:"中級"},
+{en:"wet",jp:"濡れた",pos:"形容詞",lv:"中級"},
+// ── 形容詞・上級 ──
+{en:"necessary",jp:"必要な",pos:"形容詞",lv:"上級"},
+{en:"unnecessary",jp:"不必要な",pos:"形容詞",lv:"上級"},
+{en:"effective",jp:"効果的な",pos:"形容詞",lv:"上級"},
+{en:"efficient",jp:"効率的な",pos:"形容詞",lv:"上級"},
+{en:"flexible",jp:"柔軟な",pos:"形容詞",lv:"上級"},
+{en:"practical",jp:"実用的な",pos:"形容詞",lv:"上級"},
+{en:"realistic",jp:"現実的な",pos:"形容詞",lv:"上級"},
+{en:"specific",jp:"具体的な",pos:"形容詞",lv:"上級"},
+{en:"general",jp:"一般的な",pos:"形容詞",lv:"上級"},
+{en:"basic",jp:"基本的な",pos:"形容詞",lv:"上級"},
+{en:"advanced",jp:"上級の・進んだ",pos:"形容詞",lv:"上級"},
+{en:"professional",jp:"プロの・専門的な",pos:"形容詞",lv:"上級"},
+{en:"casual",jp:"カジュアルな",pos:"形容詞",lv:"上級"},
+{en:"formal",jp:"フォーマルな・正式な",pos:"形容詞",lv:"上級"},
+{en:"emotional",jp:"感情的な",pos:"形容詞",lv:"上級"},
+{en:"logical",jp:"論理的な",pos:"形容詞",lv:"上級"},
+{en:"physical",jp:"身体的な",pos:"形容詞",lv:"上級"},
+{en:"mental",jp:"精神的な",pos:"形容詞",lv:"上級"},
+{en:"social",jp:"社会的な",pos:"形容詞",lv:"上級"},
+{en:"cultural",jp:"文化的な",pos:"形容詞",lv:"上級"},
+{en:"international",jp:"国際的な",pos:"形容詞",lv:"上級"},
+{en:"traditional",jp:"伝統的な",pos:"形容詞",lv:"上級"},
+{en:"modern",jp:"現代の・モダンな",pos:"形容詞",lv:"上級"},
+{en:"creative",jp:"創造的な",pos:"形容詞",lv:"上級"},
+{en:"active",jp:"活動的な",pos:"形容詞",lv:"上級"},
+{en:"passive",jp:"受動的な",pos:"形容詞",lv:"上級"},
+{en:"responsible",jp:"責任感のある",pos:"形容詞",lv:"上級"},
+{en:"independent",jp:"独立した・自立した",pos:"形容詞",lv:"上級"},
+{en:"positive",jp:"ポジティブな・肯定的な",pos:"形容詞",lv:"上級"},
+{en:"negative",jp:"ネガティブな・否定的な",pos:"形容詞",lv:"上級"},
+{en:"confident",jp:"自信がある",pos:"形容詞",lv:"上級"},
+{en:"calm",jp:"落ち着いた",pos:"形容詞",lv:"上級"},
+{en:"patient",jp:"忍耐強い",pos:"形容詞",lv:"上級"},
+{en:"respectful",jp:"礼儀正しい・敬意を持った",pos:"形容詞",lv:"上級"},
+{en:"reliable",jp:"信頼できる",pos:"形容詞",lv:"上級"},
+{en:"successful",jp:"成功した",pos:"形容詞",lv:"上級"},
+{en:"meaningful",jp:"意味のある",pos:"形容詞",lv:"上級"},
+{en:"valuable",jp:"価値ある",pos:"形容詞",lv:"上級"},
+{en:"challenging",jp:"やりがいのある・難しい",pos:"形容詞",lv:"上級"},
+{en:"complicated",jp:"複雑な",pos:"形容詞",lv:"上級"},
+{en:"certain",jp:"確かな・特定の",pos:"形容詞",lv:"上級"},
+{en:"uncertain",jp:"不確かな",pos:"形容詞",lv:"上級"},
+{en:"familiar",jp:"なじみのある",pos:"形容詞",lv:"上級"},
+{en:"unfamiliar",jp:"なじみのない",pos:"形容詞",lv:"上級"},
+{en:"similar",jp:"似ている",pos:"形容詞",lv:"上級"},
+// ── 副詞・初級 ──
+{en:"always",jp:"いつも",pos:"副詞",lv:"初級"},
+{en:"usually",jp:"たいてい",pos:"副詞",lv:"初級"},
+{en:"often",jp:"よく・頻繁に",pos:"副詞",lv:"初級"},
+{en:"sometimes",jp:"時々",pos:"副詞",lv:"初級"},
+{en:"rarely",jp:"めったに〜ない",pos:"副詞",lv:"初級"},
+{en:"never",jp:"決して〜ない",pos:"副詞",lv:"初級"},
+{en:"very",jp:"とても",pos:"副詞",lv:"初級"},
+{en:"really",jp:"本当に",pos:"副詞",lv:"初級"},
+{en:"so",jp:"とても・そんなに",pos:"副詞",lv:"初級"},
+{en:"too",jp:"〜すぎる・〜も",pos:"副詞",lv:"初級"},
+{en:"quite",jp:"かなり",pos:"副詞",lv:"初級"},
+{en:"just",jp:"ちょうど・ただ",pos:"副詞",lv:"初級"},
+{en:"only",jp:"だけ",pos:"副詞",lv:"初級"},
+{en:"almost",jp:"ほとんど",pos:"副詞",lv:"初級"},
+{en:"already",jp:"もう・すでに",pos:"副詞",lv:"初級"},
+{en:"yet",jp:"まだ・もう",pos:"副詞",lv:"初級"},
+{en:"still",jp:"まだ・まだ〜している",pos:"副詞",lv:"初級"},
+{en:"now",jp:"今",pos:"副詞",lv:"初級"},
+{en:"then",jp:"その時・それから",pos:"副詞",lv:"初級"},
+{en:"soon",jp:"もうすぐ",pos:"副詞",lv:"初級"},
+{en:"later",jp:"後で",pos:"副詞",lv:"初級"},
+{en:"here",jp:"ここ",pos:"副詞",lv:"初級"},
+{en:"there",jp:"あそこ",pos:"副詞",lv:"初級"},
+{en:"away",jp:"離れて",pos:"副詞",lv:"初級"},
+{en:"together",jp:"一緒に",pos:"副詞",lv:"初級"},
+{en:"alone",jp:"一人で",pos:"副詞",lv:"初級"},
+// ── 副詞・中級 ──
+{en:"again",jp:"また・もう一度",pos:"副詞",lv:"中級"},
+{en:"maybe",jp:"たぶん",pos:"副詞",lv:"中級"},
+{en:"probably",jp:"おそらく",pos:"副詞",lv:"中級"},
+{en:"definitely",jp:"絶対に・確実に",pos:"副詞",lv:"中級"},
+{en:"actually",jp:"実は・実際に",pos:"副詞",lv:"中級"},
+{en:"basically",jp:"基本的に",pos:"副詞",lv:"中級"},
+{en:"especially",jp:"特に",pos:"副詞",lv:"中級"},
+{en:"normally",jp:"通常は・普通は",pos:"副詞",lv:"中級"},
+{en:"finally",jp:"ついに・最後に",pos:"副詞",lv:"中級"},
+{en:"first",jp:"最初に・まず",pos:"副詞",lv:"中級"},
+{en:"next",jp:"次に",pos:"副詞",lv:"中級"},
+{en:"last",jp:"最後に",pos:"副詞",lv:"中級"},
+{en:"recently",jp:"最近",pos:"副詞",lv:"中級"},
+{en:"suddenly",jp:"突然",pos:"副詞",lv:"中級"},
+{en:"slowly",jp:"ゆっくり",pos:"副詞",lv:"中級"},
+{en:"quickly",jp:"素早く・すぐに",pos:"副詞",lv:"中級"},
+{en:"carefully",jp:"注意深く",pos:"副詞",lv:"中級"},
+{en:"easily",jp:"簡単に",pos:"副詞",lv:"中級"},
+{en:"clearly",jp:"はっきりと",pos:"副詞",lv:"中級"},
+{en:"loudly",jp:"大声で",pos:"副詞",lv:"中級"},
+{en:"quietly",jp:"静かに",pos:"副詞",lv:"中級"},
+{en:"well",jp:"うまく・よく",pos:"副詞",lv:"中級"},
+{en:"badly",jp:"ひどく・下手に",pos:"副詞",lv:"中級"},
+{en:"enough",jp:"十分に",pos:"副詞",lv:"中級"},
+{en:"instead",jp:"代わりに",pos:"副詞",lv:"中級"},
+{en:"anyway",jp:"とにかく・どうせ",pos:"副詞",lv:"中級"},
+{en:"though",jp:"でも・だけど（文末）",pos:"副詞",lv:"中級"},
+{en:"however",jp:"しかし・しかしながら",pos:"副詞",lv:"中級"},
+// ── 副詞・上級 ──
+{en:"personally",jp:"個人的には",pos:"副詞",lv:"上級"},
+{en:"honestly",jp:"正直に言うと",pos:"副詞",lv:"上級"},
+{en:"seriously",jp:"真剣に・まじめに",pos:"副詞",lv:"上級"},
+{en:"naturally",jp:"自然に・当然",pos:"副詞",lv:"上級"},
+{en:"generally",jp:"一般的に",pos:"副詞",lv:"上級"},
+{en:"completely",jp:"完全に",pos:"副詞",lv:"上級"},
+{en:"totally",jp:"完全に・全く",pos:"副詞",lv:"上級"},
+{en:"exactly",jp:"まさに・正確に",pos:"副詞",lv:"上級"},
+{en:"properly",jp:"適切に・きちんと",pos:"副詞",lv:"上級"},
+{en:"directly",jp:"直接に",pos:"副詞",lv:"上級"},
+{en:"simply",jp:"単に・シンプルに",pos:"副詞",lv:"上級"},
+{en:"mainly",jp:"主に",pos:"副詞",lv:"上級"},
+{en:"mostly",jp:"ほとんど・大部分は",pos:"副詞",lv:"上級"},
+{en:"partly",jp:"部分的に",pos:"副詞",lv:"上級"},
+{en:"surprisingly",jp:"驚くことに",pos:"副詞",lv:"上級"},
+{en:"unfortunately",jp:"残念ながら",pos:"副詞",lv:"上級"},
+{en:"luckily",jp:"運よく",pos:"副詞",lv:"上級"},
+{en:"obviously",jp:"明らかに",pos:"副詞",lv:"上級"},
+{en:"apparently",jp:"どうやら〜らしい",pos:"副詞",lv:"上級"},
+// ── 前置詞・接続詞・初級 ──
+{en:"in",jp:"〜の中に",pos:"その他",lv:"初級"},
+{en:"on",jp:"〜の上に",pos:"その他",lv:"初級"},
+{en:"at",jp:"〜で・〜に（場所・時刻）",pos:"その他",lv:"初級"},
+{en:"to",jp:"〜へ・〜に",pos:"その他",lv:"初級"},
+{en:"from",jp:"〜から",pos:"その他",lv:"初級"},
+{en:"for",jp:"〜のために・〜の間",pos:"その他",lv:"初級"},
+{en:"with",jp:"〜と一緒に",pos:"その他",lv:"初級"},
+{en:"without",jp:"〜なしで",pos:"その他",lv:"初級"},
+{en:"about",jp:"〜について・約",pos:"その他",lv:"初級"},
+{en:"of",jp:"〜の",pos:"その他",lv:"初級"},
+{en:"by",jp:"〜によって・〜までに",pos:"その他",lv:"初級"},
+{en:"before",jp:"〜の前に",pos:"その他",lv:"初級"},
+{en:"after",jp:"〜の後に",pos:"その他",lv:"初級"},
+{en:"under",jp:"〜の下に",pos:"その他",lv:"初級"},
+{en:"over",jp:"〜の上に・超えて",pos:"その他",lv:"初級"},
+{en:"between",jp:"〜の間に",pos:"その他",lv:"初級"},
+{en:"near",jp:"〜の近くに",pos:"その他",lv:"初級"},
+{en:"behind",jp:"〜の後ろに",pos:"その他",lv:"初級"},
+{en:"and",jp:"〜と・そして",pos:"その他",lv:"初級"},
+{en:"but",jp:"しかし・でも",pos:"その他",lv:"初級"},
+{en:"or",jp:"または",pos:"その他",lv:"初級"},
+{en:"because",jp:"なぜなら〜だから",pos:"その他",lv:"初級"},
+{en:"if",jp:"もし〜ならば",pos:"その他",lv:"初級"},
+{en:"when",jp:"〜の時に",pos:"その他",lv:"初級"},
+{en:"while",jp:"〜の間",pos:"その他",lv:"初級"},
+{en:"as",jp:"〜として・〜ように",pos:"その他",lv:"初級"},
+{en:"than",jp:"〜より",pos:"その他",lv:"初級"},
+// ── 前置詞・接続詞・中級 ──
+{en:"until",jp:"〜まで",pos:"その他",lv:"中級"},
+{en:"since",jp:"〜以来・〜なので",pos:"その他",lv:"中級"},
+{en:"during",jp:"〜の間中",pos:"その他",lv:"中級"},
+{en:"around",jp:"〜の周りに・約",pos:"その他",lv:"中級"},
+{en:"through",jp:"〜を通って",pos:"その他",lv:"中級"},
+{en:"across",jp:"〜を横切って",pos:"その他",lv:"中級"},
+{en:"inside",jp:"〜の内側に",pos:"その他",lv:"中級"},
+{en:"outside",jp:"〜の外側に",pos:"その他",lv:"中級"},
+{en:"into",jp:"〜の中へ",pos:"その他",lv:"中級"},
+{en:"up",jp:"上へ・上がって",pos:"その他",lv:"中級"},
+{en:"down",jp:"下へ・下がって",pos:"その他",lv:"中級"},
+{en:"off",jp:"離れて・オフ",pos:"その他",lv:"中級"},
+{en:"along",jp:"〜に沿って",pos:"その他",lv:"中級"},
+{en:"among",jp:"〜の中で・〜の間で",pos:"その他",lv:"中級"},
+{en:"against",jp:"〜に反対して・〜に対して",pos:"その他",lv:"中級"},
+{en:"unlike",jp:"〜と違って",pos:"その他",lv:"中級"},
+{en:"except",jp:"〜を除いて",pos:"その他",lv:"中級"},
+{en:"although",jp:"〜にもかかわらず",pos:"その他",lv:"中級"},
+{en:"unless",jp:"〜しない限り",pos:"その他",lv:"中級"},
+{en:"whether",jp:"〜かどうか",pos:"その他",lv:"中級"},
+{en:"once",jp:"一度・〜したら",pos:"その他",lv:"中級"},
+// ── 前置詞・接続詞・上級 ──
+{en:"despite",jp:"〜にもかかわらず",pos:"その他",lv:"上級"},
+{en:"regarding",jp:"〜に関して",pos:"その他",lv:"上級"},
+{en:"throughout",jp:"〜の間ずっと",pos:"その他",lv:"上級"},
+{en:"according to",jp:"〜によれば",pos:"その他",lv:"上級"},
+{en:"instead of",jp:"〜の代わりに",pos:"その他",lv:"上級"},
+{en:"because of",jp:"〜のために・〜のせいで",pos:"その他",lv:"上級"},
+{en:"due to",jp:"〜のために・〜の理由で",pos:"その他",lv:"上級"},
+{en:"thanks to",jp:"〜のおかげで",pos:"その他",lv:"上級"},
+{en:"in order to",jp:"〜するために",pos:"その他",lv:"上級"},
+{en:"as long as",jp:"〜する限りは",pos:"その他",lv:"上級"},
+{en:"as soon as",jp:"〜するとすぐに",pos:"その他",lv:"上級"},
+{en:"even if",jp:"たとえ〜でも",pos:"その他",lv:"上級"},
+{en:"rather than",jp:"〜よりも",pos:"その他",lv:"上級"},
+{en:"such as",jp:"〜のような",pos:"その他",lv:"上級"},
+{en:"as well as",jp:"〜だけでなく",pos:"その他",lv:"上級"},
+{en:"in addition to",jp:"〜に加えて",pos:"その他",lv:"上級"},
+// ── 追加：動詞 ──
+{en:"communicate",jp:"伝える・コミュニケーションをとる",pos:"動詞",lv:"中級"},
+{en:"congratulate",jp:"おめでとうと言う・祝う",pos:"動詞",lv:"中級"},
+{en:"damage",jp:"傷つける・ダメージを与える",pos:"動詞",lv:"中級"},
+{en:"download",jp:"ダウンロードする",pos:"動詞",lv:"中級"},
+{en:"escape",jp:"逃げる",pos:"動詞",lv:"中級"},
+{en:"exist",jp:"存在する",pos:"動詞",lv:"上級"},
+{en:"extend",jp:"延ばす・伸ばす",pos:"動詞",lv:"上級"},
+{en:"graduate",jp:"卒業する",pos:"動詞",lv:"中級"},
+{en:"hide",jp:"隠れる・隠す",pos:"動詞",lv:"中級"},
+{en:"hire",jp:"雇う",pos:"動詞",lv:"上級"},
+{en:"hurt",jp:"傷つける・痛む",pos:"動詞",lv:"初級"},
+{en:"knock",jp:"ノックする・叩く",pos:"動詞",lv:"初級"},
+{en:"land",jp:"着陸する",pos:"動詞",lv:"中級"},
+{en:"lie",jp:"横になる・嘘をつく",pos:"動詞",lv:"中級"},
+{en:"lift",jp:"持ち上げる",pos:"動詞",lv:"中級"},
+{en:"obey",jp:"従う",pos:"動詞",lv:"上級"},
+{en:"observe",jp:"観察する",pos:"動詞",lv:"上級"},
+{en:"obtain",jp:"手に入れる",pos:"動詞",lv:"上級"},
+{en:"operate",jp:"操作する・運営する",pos:"動詞",lv:"上級"},
+{en:"permit",jp:"許可する",pos:"動詞",lv:"上級"},
+{en:"pour",jp:"注ぐ",pos:"動詞",lv:"中級"},
+{en:"print",jp:"印刷する",pos:"動詞",lv:"初級"},
+{en:"release",jp:"リリースする・発売する",pos:"動詞",lv:"中級"},
+{en:"repair",jp:"修理する",pos:"動詞",lv:"中級"},
+{en:"repeat",jp:"繰り返す",pos:"動詞",lv:"初級"},
+{en:"replace",jp:"取り替える",pos:"動詞",lv:"中級"},
+{en:"reserve",jp:"予約する",pos:"動詞",lv:"中級"},
+{en:"review",jp:"復習する・レビューする",pos:"動詞",lv:"中級"},
+{en:"search",jp:"検索する・探す",pos:"動詞",lv:"初級"},
+{en:"select",jp:"選ぶ",pos:"動詞",lv:"中級"},
+{en:"settle",jp:"落ち着く・解決する",pos:"動詞",lv:"上級"},
+{en:"shake",jp:"振る・握手する",pos:"動詞",lv:"初級"},
+{en:"skip",jp:"飛ばす",pos:"動詞",lv:"中級"},
+{en:"slide",jp:"滑る",pos:"動詞",lv:"中級"},
+{en:"sort",jp:"分類する",pos:"動詞",lv:"中級"},
+{en:"stretch",jp:"伸ばす",pos:"動詞",lv:"中級"},
+{en:"submit",jp:"提出する",pos:"動詞",lv:"上級"},
+{en:"switch",jp:"切り替える",pos:"動詞",lv:"中級"},
+{en:"taste",jp:"味がする",pos:"動詞",lv:"初級"},
+{en:"upload",jp:"アップロードする",pos:"動詞",lv:"中級"},
+{en:"warn",jp:"警告する",pos:"動詞",lv:"中級"},
+// ── 追加：名詞 ──
+{en:"alarm",jp:"アラーム・警報",pos:"名詞",lv:"初級"},
+{en:"battery",jp:"電池・バッテリー",pos:"名詞",lv:"初級"},
+{en:"bill",jp:"請求書・紙幣",pos:"名詞",lv:"中級"},
+{en:"blanket",jp:"毛布",pos:"名詞",lv:"初級"},
+{en:"bottle",jp:"ボトル・瓶",pos:"名詞",lv:"初級"},
+{en:"bowl",jp:"ボウル・お椀",pos:"名詞",lv:"初級"},
+{en:"box",jp:"箱",pos:"名詞",lv:"初級"},
+{en:"button",jp:"ボタン",pos:"名詞",lv:"初級"},
+{en:"college",jp:"大学・カレッジ",pos:"名詞",lv:"初級"},
+{en:"concert",jp:"コンサート",pos:"名詞",lv:"初級"},
+{en:"corner",jp:"角・コーナー",pos:"名詞",lv:"初級"},
+{en:"cup",jp:"カップ",pos:"名詞",lv:"初級"},
+{en:"degree",jp:"度・学位",pos:"名詞",lv:"中級"},
+{en:"direction",jp:"方向・指示",pos:"名詞",lv:"中級"},
+{en:"disability",jp:"障害",pos:"名詞",lv:"上級"},
+{en:"discount",jp:"割引",pos:"名詞",lv:"中級"},
+{en:"distance",jp:"距離",pos:"名詞",lv:"中級"},
+{en:"electric",jp:"電気",pos:"名詞",lv:"初級"},
+{en:"entrance",jp:"入口",pos:"名詞",lv:"中級"},
+{en:"garage",jp:"ガレージ",pos:"名詞",lv:"中級"},
+{en:"gate",jp:"ゲート・門",pos:"名詞",lv:"初級"},
+{en:"gift",jp:"プレゼント・贈り物",pos:"名詞",lv:"初級"},
+{en:"glass",jp:"グラス・ガラス",pos:"名詞",lv:"初級"},
+{en:"ground",jp:"地面・グラウンド",pos:"名詞",lv:"初級"},
+{en:"guide",jp:"ガイド",pos:"名詞",lv:"中級"},
+{en:"guitar",jp:"ギター",pos:"名詞",lv:"初級"},
+{en:"headache",jp:"頭痛",pos:"名詞",lv:"中級"},
+{en:"island",jp:"島",pos:"名詞",lv:"初級"},
+{en:"knife",jp:"ナイフ・包丁",pos:"名詞",lv:"初級"},
+{en:"laptop",jp:"ノートパソコン",pos:"名詞",lv:"初級"},
+{en:"minute",jp:"分",pos:"名詞",lv:"初級"},
+{en:"mirror",jp:"鏡",pos:"名詞",lv:"初級"},
+{en:"mountain",jp:"山",pos:"名詞",lv:"初級"},
+{en:"neighbor",jp:"隣人・近所の人",pos:"名詞",lv:"中級"},
+{en:"ocean",jp:"海・大洋",pos:"名詞",lv:"初級"},
+{en:"page",jp:"ページ",pos:"名詞",lv:"初級"},
+{en:"piano",jp:"ピアノ",pos:"名詞",lv:"初級"},
+{en:"plate",jp:"お皿",pos:"名詞",lv:"初級"},
+{en:"pocket",jp:"ポケット",pos:"名詞",lv:"初級"},
+{en:"pollution",jp:"汚染",pos:"名詞",lv:"中級"},
+{en:"pool",jp:"プール",pos:"名詞",lv:"初級"},
+{en:"position",jp:"ポジション・立場",pos:"名詞",lv:"中級"},
+{en:"receipt",jp:"レシート",pos:"名詞",lv:"初級"},
+{en:"salary",jp:"給料",pos:"名詞",lv:"中級"},
+{en:"screen",jp:"スクリーン・画面",pos:"名詞",lv:"初級"},
+{en:"seat",jp:"席・座席",pos:"名詞",lv:"初級"},
+{en:"snack",jp:"スナック・間食",pos:"名詞",lv:"初級"},
+{en:"speech",jp:"スピーチ",pos:"名詞",lv:"中級"},
+{en:"stairs",jp:"階段",pos:"名詞",lv:"初級"},
+{en:"sugar",jp:"砂糖",pos:"名詞",lv:"初級"},
+{en:"survey",jp:"アンケート・調査",pos:"名詞",lv:"中級"},
+{en:"test",jp:"テスト・試験",pos:"名詞",lv:"初級"},
+{en:"tip",jp:"チップ・ヒント",pos:"名詞",lv:"中級"},
+{en:"title",jp:"タイトル",pos:"名詞",lv:"初級"},
+{en:"topic",jp:"トピック・話題",pos:"名詞",lv:"中級"},
+{en:"tower",jp:"タワー",pos:"名詞",lv:"初級"},
+{en:"umbrella",jp:"傘",pos:"名詞",lv:"初級"},
+{en:"university",jp:"大学",pos:"名詞",lv:"初級"},
+{en:"view",jp:"眺め・景色",pos:"名詞",lv:"中級"},
+{en:"village",jp:"村",pos:"名詞",lv:"初級"},
+// ── 追加：形容詞 ──
+{en:"amazing",jp:"すごい・驚くべき",pos:"形容詞",lv:"初級"},
+{en:"awful",jp:"ひどい",pos:"形容詞",lv:"中級"},
+{en:"broken",jp:"壊れた",pos:"形容詞",lv:"初級"},
+{en:"delightful",jp:"とても楽しい・うれしい",pos:"形容詞",lv:"上級"},
+{en:"fair",jp:"公平な",pos:"形容詞",lv:"中級"},
+{en:"fit",jp:"健康な・合っている",pos:"形容詞",lv:"中級"},
+{en:"flat",jp:"平らな・平坦な",pos:"形容詞",lv:"中級"},
+{en:"frightened",jp:"怖がっている",pos:"形容詞",lv:"中級"},
+{en:"generous",jp:"気前のよい",pos:"形容詞",lv:"上級"},
+{en:"glad",jp:"嬉しい",pos:"形容詞",lv:"初級"},
+{en:"gross",jp:"気持ち悪い",pos:"形容詞",lv:"中級"},
+{en:"guilty",jp:"罪悪感のある",pos:"形容詞",lv:"上級"},
+{en:"humorous",jp:"ユーモアのある",pos:"形容詞",lv:"上級"},
+{en:"ideal",jp:"理想的な",pos:"形容詞",lv:"上級"},
+{en:"jealous",jp:"嫉妬している",pos:"形容詞",lv:"中級"},
+{en:"lazy",jp:"怠惰な",pos:"形容詞",lv:"中級"},
+{en:"mad",jp:"怒っている・おかしい",pos:"形容詞",lv:"初級"},
+{en:"odd",jp:"変な・奇妙な",pos:"形容詞",lv:"中級"},
+{en:"painful",jp:"痛い・つらい",pos:"形容詞",lv:"中級"},
+{en:"plain",jp:"シンプルな・地味な",pos:"形容詞",lv:"中級"},
+{en:"pleasant",jp:"心地よい・楽しい",pos:"形容詞",lv:"中級"},
+{en:"precious",jp:"大切な・貴重な",pos:"形容詞",lv:"上級"},
+{en:"round",jp:"丸い",pos:"形容詞",lv:"初級"}
+];
+
+let mode='en2jp',lv='all',pos='all',qLimit=9999,isWeakMode=false;
+let qs=[],idx=0,correct=0,wrong=0,streak=0,bestStreak=0,wrongWords=[],correctWords=[],answered=false;
+document.getElementById('total-cnt').textContent=W.length+'語';
+renderWeakList();
+
+function selMode(el){document.querySelectorAll('.mc').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');mode=el.dataset.mode;}
+function selLv(el){document.querySelectorAll('[data-lv]').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');lv=el.dataset.lv;}
+function selPos(el){document.querySelectorAll('[data-pos]').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');pos=el.dataset.pos;}
+function selN(el){document.querySelectorAll('.qchip').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');qLimit=parseInt(el.dataset.n);}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+
+function getPool(){
+  let pool=W;
+  if(lv!=='all') pool=pool.filter(w=>w.lv===lv);
+  if(pos!=='all') pool=pool.filter(w=>w.pos===pos);
+  return pool.length>=4?pool:W;
+}
+
+function startQuiz(){
+  let pool=getPool();
+  qs=shuffle(pool).slice(0,qLimit>=pool.length?pool.length:qLimit);
+  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];isWeakMode=false;
+  document.getElementById('hbadge').style.display='none';
+  showScreen('quiz');renderQ();
+}
+
+function renderQ(){
+  answered=false;
+  const oldBadge=document.getElementById('retry-badge');
+  if(oldBadge) oldBadge.remove();
+  const w=qs[idx];const tot=qs.length,cur=idx+1;
+  document.getElementById('q-cur').textContent=cur;
+  document.getElementById('q-tot').textContent=tot;
+  document.getElementById('prog-fill').style.width=((cur-1)/tot*100)+'%';
+  const isTyping=(mode==='typing');
+  let dir;
+  if(mode==='en2jp') dir='en2jp';
+  else if(mode==='jp2en') dir='jp2en';
+  else if(isTyping) dir='jp2en';
+  else dir=Math.random()>.5?'en2jp':'jp2en';
+  const wd=document.getElementById('word-disp');
+  const pd=document.getElementById('ph-disp');
+  if(isTyping){wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN（入力）';}
+  else if(dir==='en2jp'){wd.className='word-en';wd.textContent=w.en;pd.textContent='';document.getElementById('q-type-tag').textContent='EN → JP';}
+  else{wd.className='word-jp';wd.textContent=w.jp;pd.textContent='';document.getElementById('q-type-tag').textContent='JP → EN';}
+  document.getElementById('word-num-tag').textContent='#'+(idx+1);
+  document.getElementById('q-pos-tag').textContent=w.pos;
+  document.getElementById('q-lv-tag').textContent=w.lv;
+  document.getElementById('q-lv-tag').className='lv-'+w.lv;
+  wd.setAttribute('data-dir',dir);
+  document.getElementById('fb-el').className='fb';document.getElementById('fb-el').textContent='';
+  document.getElementById('next-btn').className='next-btn';
+  const cw=document.getElementById('choices-wrap');const tw=document.getElementById('typing-wrap');
+  if(isTyping){
+    cw.style.display='none';tw.style.display='block';
+    const inp=document.getElementById('t-input');
+    inp.value='';inp.className='type-input';inp.disabled=false;
+    setTimeout(()=>inp.focus(),80);
+  } else {
+    tw.style.display='none';cw.style.display='grid';buildChoices(w,dir);
+  }
+}
+
+function buildChoices(w,dir){
+  const cw=document.getElementById('choices-wrap');cw.innerHTML='';
+  const others=shuffle(W.filter(x=>x.en!==w.en)).slice(0,3);
+  const opts=shuffle([w,...others]);
+  opts.forEach(o=>{
+    const btn=document.createElement('button');btn.className='choice';
+    btn.textContent=dir==='en2jp'?o.jp:o.en;
+    btn.onclick=()=>checkChoice(btn,o,w,dir);
+    cw.appendChild(btn);
+  });
+}
+
+function checkChoice(btn,picked,cw,dir){
+  if(answered)return;answered=true;
+  const ok=picked.en===cw.en;
+  btn.classList.add(ok?'correct':'wrong');
+  document.querySelectorAll('.choice').forEach(b=>{
+    if(b.textContent===(dir==='en2jp'?cw.jp:cw.en)) b.classList.add('correct');
+    b.disabled=true;
+  });
+  handleResult(ok,cw,dir);
+}
+
+function checkType(){
+  if(answered)return;
+  const inp=document.getElementById('t-input');
+  const val=inp.value.trim();if(!val)return;
+  const w=qs[idx];
+  const ok=val.toLowerCase()===w.en.toLowerCase();
+  inp.className='type-input '+(ok?'correct':'wrong');inp.disabled=true;
+  handleResult(ok,w,'en2jp',w.en);
+}
+
+function handleResult(ok,w,dir,ans){
+  if(ok){correct++;streak++;if(streak>bestStreak)bestStreak=streak;correctWords.push(w);}
+  else{wrong++;streak=0;wrongWords.push(w);}
+  const fb=document.getElementById('fb-el');
+  const show=ans||(dir==='en2jp'?w.jp:w.en);
+  fb.textContent=ok?'✓ 正解！ 「'+show+'」':'✗ 不正解。正解は「'+show+'」';
+  fb.className='fb show '+(ok?'ok':'ng');
+  document.getElementById('hbadge').style.display='block';
+  document.getElementById('hstr').textContent=streak;
+  const se=document.getElementById('streak-el');
+  if(streak>=2){se.className='streak show';document.getElementById('str-n').textContent=streak;}else{se.className='streak';}
+  const nb=document.getElementById('next-btn');
+  nb.className='next-btn show';
+  nb.textContent=idx+1>=qs.length?'結果を見る →':'次の問題 →';
+}
+
+function nextQ(){idx++;if(idx>=qs.length)showResult();else renderQ();}
+
+function showResult(){
+  const tot=qs.length,pct=Math.round(correct/tot*100);
+  document.getElementById('r-pct').textContent=pct+'%';
+  document.getElementById('rs-cor').textContent=correct;
+  document.getElementById('rs-wrg').textContent=wrong;
+  document.getElementById('rs-tot').textContent=tot;
+  document.getElementById('rs-str').textContent=bestStreak;
+  let grade,msg;
+  if(pct===100){grade='🏆 パーフェクト！';msg='全問正解！完璧です！';}
+  else if(pct>=80){grade='🎉 素晴らしい！';msg='英会話レベル、かなり高いです！';}
+  else if(pct>=60){grade='👍 いい感じ！';msg='もう少しで上級！間違えた単語を復習しよう。';}
+  else if(pct>=40){grade='📚 もう少し！';msg='日常会話に必要な単語をコツコツ覚えよう。';}
+  else{grade='💪 頑張ろう！';msg='基礎単語から繰り返し練習しよう。';}
+  document.getElementById('r-grade').textContent=grade;
+  document.getElementById('r-msg').textContent=msg;
+  const ws=document.getElementById('wrong-sec'),wl=document.getElementById('wrong-list');
+  if(wrongWords.length||correctWords.length){
+    const wrongHtml=wrongWords.map(w=>`<div class="wi wi-wrong"><div class="wi-mark">✗</div><div class="wi-en">${w.en}</div><div class="wi-r"><div class="wi-jp">${w.jp}</div><div class="wi-num">${w.pos} / ${w.lv}</div></div></div>`).join('');
+    const correctHtml=correctWords.map(w=>`<div class="wi wi-correct"><div class="wi-mark">✓</div><div class="wi-en">${w.en}</div><div class="wi-r"><div class="wi-jp">${w.jp}</div><div class="wi-num">${w.pos} / ${w.lv}</div></div></div>`).join('');
+    wl.innerHTML=(wrongWords.length?`<div class="wi-section-label ng-label">✗ 不正解 (${wrongWords.length}語)</div>`+wrongHtml:'')+
+                 (correctWords.length?`<div class="wi-section-label ok-label">✓ 正解 (${correctWords.length}語)</div>`+correctHtml:'');
+    ws.style.display='block';
+  }else{ws.style.display='none';}
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('hbadge').style.display='none';
+  const rwb=document.getElementById('retry-wrong-btn');
+  rwb.style.display=wrongWords.length?'block':'none';
+  rwb.textContent='🔁 間違えた '+wrongWords.length+'語 を復習する';
+  // 間違えた単語をlocalStorageに保存
+  if(wrongWords.length){
+    addToWeak(wrongWords);
+    const sn=document.getElementById('save-notice');
+    // 苦手リストに保存通知（結果画面には表示しない、次回起動時に反映）
+  }
+  // 苦手モードで正解した単語は苦手リストから回数をリセット
+  if(isWeakMode && correctWords.length){
+    let weak=loadWeakWords();
+    correctWords.forEach(cw=>{
+      const idx2=weak.findIndex(x=>x.en===cw.en);
+      if(idx2!==-1){
+        if((weak[idx2].count||1)<=1){
+          weak.splice(idx2,1); // 1回ミスで正解したら削除
+        } else {
+          weak[idx2].count--;  // 複数回ミスは回数を減らす
+        }
+      }
+    });
+    saveWeakWords(weak);
+  }
+  isWeakMode=false;
+  showScreen('result');
+}
+
+function goStart(){
+  document.getElementById('hbadge').style.display='none';
+  renderWeakList();
+  showScreen('start');
+}
+
+// ── 苦手単語 localStorage管理 ──
+const STORAGE_KEY='daily_eng_weak_v1';
+
+function loadWeakWords(){
+  try{
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+  }catch(e){return[];}
+}
+
+function saveWeakWords(words){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(words));
+  }catch(e){}
+}
+
+function addToWeak(words){
+  let weak=loadWeakWords();
+  const today=new Date().toLocaleDateString('ja-JP',{month:'numeric',day:'numeric'});
+  words.forEach(w=>{
+    const exists=weak.find(x=>x.en===w.en);
+    if(exists){
+      exists.count=(exists.count||1)+1;
+      exists.date=today;
+    } else {
+      weak.push({en:w.en,jp:w.jp,pos:w.pos,lv:w.lv,count:1,date:today});
+    }
+  });
+  saveWeakWords(weak);
+}
+
+function removeFromWeak(en){
+  let weak=loadWeakWords().filter(w=>w.en!==en);
+  saveWeakWords(weak);
+  renderWeakList();
+}
+
+function clearAllWeak(){
+  if(!confirm('苦手単語リストを全削除しますか？')) return;
+  saveWeakWords([]);
+  renderWeakList();
+}
+
+function renderWeakList(){
+  const weak=loadWeakWords();
+  const countEl=document.getElementById('weak-count');
+  const emptyEl=document.getElementById('weak-empty');
+  const listEl=document.getElementById('weak-list');
+  const startWrap=document.getElementById('weak-start-wrap');
+  if(!countEl) return;
+  countEl.textContent=weak.length+'語';
+  if(weak.length===0){
+    emptyEl.style.display='block';
+    listEl.style.display='none';
+    startWrap.style.display='none';
+  } else {
+    emptyEl.style.display='none';
+    listEl.style.display='flex';
+    startWrap.style.display='block';
+    // 間違い回数が多い順に並べる
+    const sorted=[...weak].sort((a,b)=>(b.count||1)-(a.count||1));
+    listEl.innerHTML=sorted.map(w=>`
+      <div class="weak-item">
+        <div>
+          <div class="weak-item-en">${w.en}</div>
+          <div class="weak-item-jp">${w.jp}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+          <div style="text-align:right">
+            <div class="weak-item-date">${w.date||''}</div>
+            <div style="font-size:10px;color:var(--red);font-family:'JetBrains Mono',monospace">${w.count||1}回ミス</div>
+          </div>
+          <button class="weak-item-del" onclick="removeFromWeak('${w.en}')">×</button>
+        </div>
+      </div>`).join('');
+  }
+}
+
+function startWeakQuiz(){
+  const weak=loadWeakWords();
+  if(!weak.length) return;
+  // Wの中から苦手単語に一致するものを取得
+  const weakWords=weak.map(wk=>W.find(w=>w.en===wk.en)).filter(Boolean);
+  if(!weakWords.length) return;
+  qs=shuffle(weakWords);
+  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;wrongWords=[];correctWords=[];isWeakMode=false;
+  document.getElementById('hbadge').style.display='none';
+  isWeakMode=true;
+  showScreen('quiz');
+  // 復習モードバッジ
+  setTimeout(()=>{
+    const prog=document.querySelector('.prog-top');
+    if(prog && !document.getElementById('retry-badge')){
+      const badge=document.createElement('div');
+      badge.id='retry-badge';
+      badge.className='retry-mode-badge';
+      badge.textContent='📌 苦手単語モード（'+weakWords.length+'語）';
+      prog.parentNode.insertBefore(badge,prog);
+    }
+  },50);
+  renderQ();
+}
+
+function retryWrong(){
+  if(!wrongWords.length) return;
+  qs=shuffle([...wrongWords]);
+  idx=0;correct=0;wrong=0;streak=0;bestStreak=0;
+  const prev=wrongWords.length;
+  wrongWords=[];correctWords=[];
+  document.getElementById('hbadge').style.display='none';
+  // 復習モードバッジをヘッダーに表示
+  document.getElementById('retry-wrong-btn').style.display='none';
+  showScreen('quiz');
+  // 復習中バッジ表示
+  const counter=document.getElementById('q-counter');
+  if(counter){
+    const badge=document.createElement('span');
+    badge.className='retry-mode-badge';
+    badge.id='retry-badge';
+    badge.textContent='🔁 復習モード（'+prev+'語）';
+    counter.parentNode.insertBefore(badge,counter.parentNode.firstChild);
+  }
+  renderQ();
+}
+function showScreen(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('scr-'+n).classList.add('active');}
+</script>
+</body>
+</html>
